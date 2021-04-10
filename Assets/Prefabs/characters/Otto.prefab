@@ -990,6 +990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Otto
       objectReference: {fileID: 0}
+    - target: {fileID: 8003630906631792407, guid: 2255593319c77f64f9ec493a6fe26085, type: 3}
+      propertyPath: StatsConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: afc5c4fb1a161754883a2d4c62bfca38, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2255593319c77f64f9ec493a6fe26085, type: 3}
 --- !u!4 &555937967517718557 stripped

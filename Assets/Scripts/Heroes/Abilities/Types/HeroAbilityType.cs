@@ -1,8 +1,8 @@
-﻿namespace Heroes.Abilities
+﻿namespace Heroes.Abilities.Types
 {
-    public class AbilitiesTypes
+    public static class HeroAbilityType
     {
-        public enum Types
+        public enum Type
         {
             HealAllies,
             PullEnemies,

@@ -989,6 +989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alice
       objectReference: {fileID: 0}
+    - target: {fileID: 8003630906631792407, guid: 2255593319c77f64f9ec493a6fe26085, type: 3}
+      propertyPath: StatsConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: e983c34a3a5179a4a93feb4dad551f6c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2255593319c77f64f9ec493a6fe26085, type: 3}
 --- !u!4 &3406760380010020955 stripped

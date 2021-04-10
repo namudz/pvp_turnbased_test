@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Heroes.Abilities.Types;
+using UnityEngine;
 
 namespace Heroes.Abilities.ConfigStats
 {
     public abstract class AbilityStatsConfig : ScriptableObject
     {
-        public AbilitiesTypes.Types Type { get; protected set; }
+        public HeroAbilityType.Type Type { get; protected set; }
     }
 }

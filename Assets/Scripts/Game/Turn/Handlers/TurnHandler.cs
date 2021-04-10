@@ -4,8 +4,9 @@ using Heroes.Controllers;
 
 namespace Game.Turn.Handlers
 {
-    public class TurnHandler
+    public class TurnHandler : ITurnHandler
     {
+        public event System.Action OnTurnStart;
         public event System.Action OnTurnFinished;
 
         private readonly TurnTypes.Turn _myTurnType;
@@ -39,7 +40,7 @@ namespace Game.Turn.Handlers
             { 
                 return;
             }
-            ResetTurn();
+            StartTurn();
         }
 
         private void TurnFinished()
@@ -47,9 +48,9 @@ namespace Game.Turn.Handlers
             OnTurnFinished?.Invoke();
         }
 
-        private void ResetTurn()
+        private void StartTurn()
         {
-            
+            OnTurnStart?.Invoke();
         }
     }
 }

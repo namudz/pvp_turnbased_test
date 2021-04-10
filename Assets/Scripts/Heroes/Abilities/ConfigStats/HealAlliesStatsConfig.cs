@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Heroes.Abilities.Types;
+using UnityEngine;
 
 namespace Heroes.Abilities.ConfigStats
 {
@@ -10,7 +11,7 @@ namespace Heroes.Abilities.ConfigStats
 
         public HealAlliesStatsConfig()
         {
-            Type = AbilitiesTypes.Types.HealAllies;
+            Type = HeroAbilityType.Type.HealAllies;
         }
     }
 }

@@ -1,23 +1,25 @@
 ﻿using Heroes.Abilities;
+using Heroes.Abilities.Types;
 using Heroes.Attacks;
+using Heroes.Attacks.Types;
 using Heroes.Health;
+using JetBrains.Annotations;
 
 namespace Heroes
 {
-    public class Heroe
+    public class Hero
     {
         public HealthPoints HealthPoints;
         public float MovementRange;
         public IHeroAttack Attack;
-        public IHeroAbility Ability;
+        [CanBeNull] public IHeroAbility Ability;
 
-        public Heroe(HeroStatsConfig stats)
+        public Hero(HeroStatsConfig stats)
         {
             HealthPoints = new HealthPoints(stats.HealthPoints);
             MovementRange = stats.MovementRange;
-            // TODO: Get pertinent IHeroAttack & IHeroAbility from Factories
-            Attack = null;
-            Ability = null;
+            Attack = AttackFactory.GetAttack(stats.AttackConfig);
+            Ability = AbilityFactory.GetAbility(stats.AbilityConfig);
         }
     }
 }

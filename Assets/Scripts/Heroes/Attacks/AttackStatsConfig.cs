@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Heroes.Attacks.Types;
+using UnityEngine;
 
 namespace Heroes.Attacks
 {
@@ -6,7 +7,7 @@ namespace Heroes.Attacks
     public class AttackStatsConfig : ScriptableObject
     {
         [Header("Type")]
-        public AttackTypes.Types Type;
+        public HeroAttackType.Type Type;
 
         [Header("Points")]
         public float AttackPoints;

@@ -5,13 +5,13 @@ namespace Game.Turn.Dealer
 {
     public class TurnDealer : ITurnDealer
     {
-        private readonly TurnHandler _player1TurnHandler;
-        private readonly TurnHandler _player2TurnHandler;
+        private readonly ITurnHandler _player1TurnHandler;
+        private readonly ITurnHandler _player2TurnHandler;
         public event Action<TurnTypes.Turn> OnTurnChanged;
 
         private TurnTypes.Turn _currentTurn;
 
-        public TurnDealer(TurnHandler player1TurnHandler, TurnHandler player2TurnHandler)
+        public TurnDealer(ITurnHandler player1TurnHandler, ITurnHandler player2TurnHandler)
         {
             _player1TurnHandler = player1TurnHandler;
             _player2TurnHandler = player2TurnHandler;
