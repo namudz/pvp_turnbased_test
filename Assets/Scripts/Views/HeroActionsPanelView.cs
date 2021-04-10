@@ -1,4 +1,5 @@
 ﻿using Heroes;
+using Heroes.Actions;
 using Heroes.Selector;
 using Services;
 using Services.EventDispatcher;
@@ -18,6 +19,7 @@ namespace Views
 
         private IEventDispatcher _eventDispatcher;
         private IImageBank _imageBank;
+        private Hero _selectedHero;
 
         private void Awake()
         {
@@ -35,12 +37,18 @@ namespace Views
             _eventDispatcher = eventDispatcher;
             _eventDispatcher.Subscribe<HeroSelectedSignal>(ShowPanel);
         }
+        
+        public void SelectedHeroAction(HeroActionType.Type actionType)
+        {
+            _selectedHero?.StartSimulatingAction(actionType);
+        }
 
         private void ShowPanel(ISignal iSignal)
         {
             var signal = iSignal as HeroSelectedSignal;
+            _selectedHero = signal.Hero;
             EnableCanvas(true);
-            UpdateActionButtons(signal.Hero);
+            UpdateActionButtons(_selectedHero);
         }
 
         private void EnableCanvas(bool isEnabled)

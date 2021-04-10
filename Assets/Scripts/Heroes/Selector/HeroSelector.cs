@@ -11,7 +11,7 @@ namespace Heroes.Selector
         
         private Hero _hero;
         private ITurnHandler _turnHandler;
-        private IHeroActionSimulator _actionSimulator;
+        private IHeroActionController _actionSimulator;
         private IEventDispatcher _eventDispatcher;
 
         private void Awake()
@@ -22,7 +22,7 @@ namespace Heroes.Selector
         public void InjectDependencies(
             Hero hero, 
             ITurnHandler turnHandler,
-            IHeroActionSimulator moveActionSimulator,
+            IHeroActionController moveActionSimulator,
             IEventDispatcher eventDispatcher)
         {
             _hero = hero;

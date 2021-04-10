@@ -6,7 +6,6 @@ namespace Heroes.Attacks.Types
     {
         public HeroAttackType.Type Type => HeroAttackType.Type.Melee;
         public float AttackPoints { get; }
-        public float AttackRange { get; }
         
         public void Attack()
         {

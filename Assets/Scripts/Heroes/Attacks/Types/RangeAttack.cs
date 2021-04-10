@@ -6,7 +6,6 @@ namespace Heroes.Attacks.Types
     {
         public HeroAttackType.Type Type => HeroAttackType.Type.Range;
         public float AttackPoints { get; }
-        public float AttackRange { get; }
         public void Attack()
         {
             throw new NotImplementedException();

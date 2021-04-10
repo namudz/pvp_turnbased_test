@@ -1,5 +1,6 @@
 ﻿using Game.Turn.Handlers;
 using Heroes.Actions;
+using Heroes.GUI;
 using Heroes.Selector;
 using Services.EventDispatcher;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Heroes.Controllers
 
         [Header("Controllers")]
         [SerializeField] private HeroSelector _heroSelector;
-        [SerializeField] private HeroActionSimulator _actionSimulator;
+        [SerializeField] private HeroActionController _heroActionController;
 
         private Hero _hero;
         private ITurnHandler _turnHandler;
@@ -25,9 +26,10 @@ namespace Heroes.Controllers
             _heroSelector.InjectDependencies(
                 _hero, 
                 turnHandler, 
-                _actionSimulator,
+                _heroActionController,
                 eventDispatcher
             );
+            _heroActionController.InjectDependencies(_hero);
         }
 
         private void InitializeHeroEntity()

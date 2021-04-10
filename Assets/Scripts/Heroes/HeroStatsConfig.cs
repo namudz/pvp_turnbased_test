@@ -10,8 +10,6 @@ namespace Heroes
         [Header ("Hero Stats")]
         [Min(1f)]
         public float HealthPoints = 1f;
-        [Range(1, 9)]
-        public int MovementRange = 1;
 
         [Header("Attack")]
         public AttackStatsConfig AttackConfig;
