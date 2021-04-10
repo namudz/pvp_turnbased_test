@@ -1,6 +1,6 @@
 ﻿namespace Heroes.Actions
 {
-    public class HeroActionTypes
+    public static class HeroActionType
     {
         public enum Type
         {

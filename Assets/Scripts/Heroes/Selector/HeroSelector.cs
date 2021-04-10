@@ -1,4 +1,5 @@
 ﻿using Game.Turn.Handlers;
+using Heroes.Actions;
 using Services.EventDispatcher;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Heroes.Selector
         
         private Hero _hero;
         private ITurnHandler _turnHandler;
+        private IHeroActionSimulator _actionSimulator;
         private IEventDispatcher _eventDispatcher;
 
         private void Awake()
@@ -17,22 +19,29 @@ namespace Heroes.Selector
             IsSelectable = false;
         }
 
-        public void InjectDependencies(Hero hero, ITurnHandler turnHandler, IEventDispatcher eventDispatcher)
+        public void InjectDependencies(
+            Hero hero, 
+            ITurnHandler turnHandler,
+            IHeroActionSimulator moveActionSimulator,
+            IEventDispatcher eventDispatcher)
         {
             _hero = hero;
             _turnHandler = turnHandler;
+            _actionSimulator = moveActionSimulator;
             _eventDispatcher = eventDispatcher;
-            _turnHandler.OnTurnStart += SetAsSelectable;
-        }
 
-        public void ResetSelectable()
-        {
-            IsSelectable = true;
+            _actionSimulator.OnActionSimulated += SetAsNotSelectable;
+            _turnHandler.OnTurnStart += SetAsSelectable;
         }
 
         private void SetAsSelectable()
         {
             IsSelectable = true;
+        }
+
+        private void SetAsNotSelectable()
+        {
+            IsSelectable = false;
         }
 
         private void OnMouseDown()
@@ -45,7 +54,6 @@ namespace Heroes.Selector
         {
             var signal = new HeroSelectedSignal(_hero);
             _eventDispatcher.Dispatch(signal);
-            IsSelectable = false;
         }
     }
 }

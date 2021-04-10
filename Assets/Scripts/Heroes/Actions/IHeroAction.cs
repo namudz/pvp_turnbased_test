@@ -2,6 +2,6 @@
 {
     public interface IHeroAction
     {
-        HeroActionTypes Type { get; }
+        HeroActionType.Type Type { get; }
     }
 }
