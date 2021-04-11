@@ -23,7 +23,6 @@ namespace Views
 
         private void Awake()
         {
-            ServiceLocator.Instance.RegisterService(this);
             EnableCanvas(false);
         }
 
@@ -41,6 +40,7 @@ namespace Views
         public void SelectedHeroAction(HeroActionType.Type actionType)
         {
             _selectedHero?.StartSimulatingAction(actionType);
+            EnableCanvas(false);
         }
 
         private void ShowPanel(ISignal iSignal)

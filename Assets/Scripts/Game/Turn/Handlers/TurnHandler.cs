@@ -12,6 +12,7 @@ namespace Game.Turn.Handlers
         private readonly TurnTypes.Turn _myTurnType;
         private readonly List<HeroController> _heroesControllers;
         private ITurnDealer _turnDealer;
+        private int _heroesToSimulateActionsCounter;
 
         public TurnHandler(TurnTypes.Turn myTurn, List<HeroController> heroesControllers)
         {
@@ -30,7 +31,7 @@ namespace Game.Turn.Handlers
         {
             foreach (var hero in _heroesControllers)
             {
-                
+                hero.OnActionSimulationFinished += HandleHeroActionSimulationFinished;
             }
         }
 
@@ -42,6 +43,15 @@ namespace Game.Turn.Handlers
             }
             StartTurn();
         }
+        
+        private void HandleHeroActionSimulationFinished()
+        {
+            --_heroesToSimulateActionsCounter;
+            if (_heroesToSimulateActionsCounter == 0)
+            {
+                TurnFinished();
+            }
+        }
 
         private void TurnFinished()
         {
@@ -50,6 +60,8 @@ namespace Game.Turn.Handlers
 
         private void StartTurn()
         {
+            // TODO: check if the hero is alive to update the counter
+            _heroesToSimulateActionsCounter = _heroesControllers.Count;
             OnTurnStart?.Invoke();
         }
     }

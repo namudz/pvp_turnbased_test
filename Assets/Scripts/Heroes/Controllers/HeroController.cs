@@ -1,4 +1,5 @@
-﻿using Game.Turn.Handlers;
+﻿using System;
+using Game.Turn.Handlers;
 using Heroes.Actions;
 using Heroes.GUI;
 using Heroes.Selector;
@@ -9,6 +10,8 @@ namespace Heroes.Controllers
 {
     public class HeroController : MonoBehaviour
     {
+        public event System.Action OnActionSimulationFinished;
+        
         [Header("Stats")]
         [SerializeField] private HeroStatsConfig StatsConfig;
 
@@ -32,9 +35,19 @@ namespace Heroes.Controllers
             _heroActionController.InjectDependencies(_hero);
         }
 
+        private void Start()
+        {
+            _heroActionController.OnActionSimulationFinished += LaunchActionSimulationFinishedEvent;
+        }
+
         private void InitializeHeroEntity()
         {
             _hero = new Hero(StatsConfig);
+        }
+        
+        private void LaunchActionSimulationFinishedEvent()
+        {
+            OnActionSimulationFinished?.Invoke();
         }
     }
 }

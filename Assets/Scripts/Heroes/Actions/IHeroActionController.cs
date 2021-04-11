@@ -4,6 +4,7 @@ namespace Heroes.Actions
 {
     public interface IHeroActionController
     {
-        event Action OnActionSimulated;
+        event Action OnActionStartSimulation;
+        event Action OnActionSimulationFinished;
     }
 }

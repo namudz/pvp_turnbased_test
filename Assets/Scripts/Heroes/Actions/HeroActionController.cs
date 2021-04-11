@@ -7,7 +7,8 @@ namespace Heroes.Actions
 {
     public class HeroActionController : MonoBehaviour, IHeroActionController
     {
-        public event Action OnActionSimulated;
+        public event Action OnActionSimulationFinished;
+        public event Action OnActionStartSimulation;
 
         [SerializeField] private MoveActionSimulator _moveSimulator;
         [SerializeField] private AttackActionSimulator _attackSimulator;
@@ -30,22 +31,24 @@ namespace Heroes.Actions
             switch (actionType)
             {
                 case HeroActionType.Type.Move:
-                    _moveSimulator.CanSimulate(GetActionCommand);
+                    _moveSimulator.CanSimulate(OnSimulationFinished);
                     break;
                 case HeroActionType.Type.Attack:
-                    _attackSimulator.CanSimulate(GetActionCommand);
+                    _attackSimulator.CanSimulate(OnSimulationFinished);
                     break;
                 case HeroActionType.Type.Ability:
-                    _abilitySimulator.CanSimulate(GetActionCommand);
+                    _abilitySimulator.CanSimulate(OnSimulationFinished);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(actionType), actionType, null);
             }
+            OnActionStartSimulation?.Invoke();
         }
 
-        private void GetActionCommand(ICommand command)
+        private void OnSimulationFinished(ICommand command)
         {
             ActionCommand = command;
+            OnActionSimulationFinished?.Invoke();
         }
     }
 }

@@ -33,7 +33,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 7af1d8ba21a96244d8645bdfa81edece, type: 3}
     - {fileID: 102900000, guid: 9d64716bd9ca901418b908e74071466b, type: 3}
-    totalSpriteSurfaceArea: 414976
+    totalSpriteSurfaceArea: 431360
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -48,6 +48,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5050d0742ed1d8a43acaedc8ee8fec5e, type: 3}
   - {fileID: 21300000, guid: f22e332549e21c14fad2f272f4ec7bf8, type: 3}
   - {fileID: 21300000, guid: 12ea7806759527b4f8bd54b1a518ad1e, type: 3}
+  - {fileID: 21300000, guid: d8f648e65824f674783efc2b5ce252c0, type: 3}
   - {fileID: 21300000, guid: b72686575cfdbcc4487a9f58097ce943, type: 3}
   - {fileID: 21300000, guid: 76d15ab794ff742409b9a61b6ee284d5, type: 3}
   - {fileID: 21300000, guid: d1b7e7fa118189c41ab71db95413afa9, type: 3}
@@ -63,6 +64,7 @@ SpriteAtlas:
   - icon_ability_pull
   - arrow_direction_fill
   - arrow_direction_border
+  - hero_selectable_circle
   - WhiteSquare
   - icon_ability_heal
   - portrait_clay
