@@ -1,4 +1,5 @@
 ﻿using System;
+using Heroes.Actions.Simulation;
 using Heroes.Commands;
 using Services.Drag;
 using UnityEngine;
@@ -22,7 +23,10 @@ namespace Heroes.Actions
         public void InjectDependencies(Hero hero)
         {
             _hero = hero;
-
+            _moveSimulator.InjectDependencies(_hero);
+            _attackSimulator.InjectDependencies(_hero);
+            _abilitySimulator.InjectDependencies(_hero);
+            
             _hero.OnStartSimulatingAction += StartSimulatingAction;
         }
 

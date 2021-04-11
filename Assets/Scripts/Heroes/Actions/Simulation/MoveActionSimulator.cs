@@ -5,7 +5,7 @@ using Services;
 using Services.Drag;
 using UnityEngine;
 
-namespace Heroes.Actions
+namespace Heroes.Actions.Simulation
 {
     public class MoveActionSimulator : MonoBehaviour, IHeroActionSimulator
     {
@@ -15,6 +15,7 @@ namespace Heroes.Actions
         [SerializeField] private HeroGuiController _heroGuiController;
         
         private IUserDragHandler _dragHandler;
+        private Hero _hero;
         private bool _isSimulating;
         private Action<ICommand> _simulationFinishedCallback;
 
@@ -22,6 +23,11 @@ namespace Heroes.Actions
         {
             _dragHandler = ServiceLocator.Instance.GetService<IUserDragHandler>();
             _dragHandler.OnEndDragging += HandleDragFinished;
+        }
+
+        public void InjectDependencies(Hero hero)
+        {
+            _hero = hero;
         }
 
         public void CanSimulate(Action<ICommand> onSimulationFinished)
@@ -34,9 +40,12 @@ namespace Heroes.Actions
         
         private void HandleDragFinished(DragDto dragDto)
         {
+            if (!_isSimulating) { return; }
+
             // TODO: which data would I need to execute it?
             var command = new MoveCommand(_heroActionController, dragDto);
             _simulationFinishedCallback?.Invoke(command);
+            _isSimulating = false;
         }
     }
 }
