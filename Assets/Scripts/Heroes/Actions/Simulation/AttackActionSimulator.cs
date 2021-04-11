@@ -1,4 +1,5 @@
 ﻿using System;
+using Heroes.Attacks;
 using Heroes.Attacks.Types;
 using Heroes.Commands;
 using Heroes.Commands.Attack;
@@ -13,7 +14,7 @@ namespace Heroes.Actions.Simulation
     {
         public event Action OnActionSimulated;
         
-        [SerializeField] private HeroActionController _heroActionController;
+        [SerializeField] private HeroAttackController _heroAttackController;
         [SerializeField] private HeroGuiController _heroGuiController;
 
         private Hero _hero;
@@ -37,7 +38,7 @@ namespace Heroes.Actions.Simulation
             switch (_hero.Attack.Type)
             {
                 case HeroAttackType.Type.Melee:
-                    var command = new AttackMeleeCommand(_heroActionController);
+                    var command = new AttackMeleeCommand(_hero, _heroAttackController);
                     FinishSimulation(command);
                     return;
                 
@@ -56,7 +57,7 @@ namespace Heroes.Actions.Simulation
 
             // TODO: which data would I need to execute it?
             _dragHandler.OnEndDragging -= HandleDragFinished;
-            var command = new AttackRangeCommand(_heroActionController, dragDto);
+            var command = new AttackRangeCommand(_hero, _heroAttackController, dragDto);
             FinishSimulation(command);
         }
 

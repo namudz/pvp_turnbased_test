@@ -1,20 +1,19 @@
-﻿using Heroes.Actions;
-using UnityEngine;
+﻿using Heroes.Attacks;
 
 namespace Heroes.Commands.Attack
 {
-    public class AttackMeleeCommand : ICommand
+    public class AttackMeleeCommand : ActionCommand
     {
-        private readonly IHeroActionController _heroActionController;
+        private readonly HeroAttackController _attackController;
 
-        public AttackMeleeCommand(IHeroActionController heroActionController)
+        public AttackMeleeCommand(Hero hero, HeroAttackController attackController) : base(hero)
         {
-            _heroActionController = heroActionController;
+            _attackController = attackController;
         }
         
-        public void Execute()
+        protected override void ExecuteAction()
         {
-            Debug.Log($"Execute action <b>{nameof(AttackMeleeCommand)}</b>");
+            _attackController.AttackMelee(_hero.Attack);
         }
     }
 }

@@ -21,6 +21,8 @@ namespace Heroes.Controllers
         [SerializeField] private HeroSelector _heroSelector;
         [SerializeField] private HeroActionController _heroActionController;
         [SerializeField] private HeroMovementController _heroMovementController;
+        [SerializeField] private HeroHealthController _heroHealthController;
+        
 
         [Header("Views")]
         [SerializeField] private HeroGuiView _guiView;
@@ -45,6 +47,7 @@ namespace Heroes.Controllers
             _heroActionController.InjectDependencies(_hero, gameActionsExecutioner);
             _heroMovementController.InjectDependencies(_hero);
             _guiView.InjectDependencies(_hero, _heroHealth);
+            _heroHealthController.InjectDependencies(_hero, _heroHealth);
         }
 
         private void Start()
