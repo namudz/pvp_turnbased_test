@@ -15,5 +15,10 @@ namespace Heroes.Animator
         {
             _heroAnimatorController.ApplyDamage();
         }
+
+        public void ShootBullet()
+        {
+            _heroAnimatorController.ShootBullet();
+        }
     }
 }

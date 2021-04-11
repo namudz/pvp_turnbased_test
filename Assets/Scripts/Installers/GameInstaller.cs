@@ -92,6 +92,7 @@ namespace Installers
         private void InstallPools()
         {
             _bulletsPool = new BulletHotDogPool(_bulletPoolConfig.PoolData);
+            ServiceLocator.Instance.RegisterService<IGameObjectPool<BulletController>>(_bulletsPool);
             _bulletsPool.InstantiateInitialElements(_bulletsPoolParent);
         }
 

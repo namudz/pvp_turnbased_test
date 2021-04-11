@@ -9,20 +9,21 @@ namespace Heroes.Animator
         [SerializeField] private UnityEngine.Animator _animator;
         
         private static readonly int MeleeAttackTrigger = UnityEngine.Animator.StringToHash("MeleeAttack");
-        private static readonly int RangeAttack = UnityEngine.Animator.StringToHash("RangeAttack");
+        private static readonly int RangeAttackTrigger = UnityEngine.Animator.StringToHash("RangeAttack");
         private static readonly int HitTrigger = UnityEngine.Animator.StringToHash("Hit");
         private static readonly int DieTrigger = UnityEngine.Animator.StringToHash("Die");
-        private Action _damageCallback;
+        private Action _attackAnimationCallback;
 
-        public void Attack(HeroAttackType.Type attackType, Action damageAnimationCallback)
+        public void Attack(HeroAttackType.Type attackType, Action animationCallback)
         {
-            _damageCallback = damageAnimationCallback;
+            _attackAnimationCallback = animationCallback;
             switch (attackType)
             {
                 case HeroAttackType.Type.Melee:
                     _animator.SetTrigger(MeleeAttackTrigger);
                     break;
                 case HeroAttackType.Type.Range:
+                    _animator.SetTrigger(RangeAttackTrigger);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
@@ -41,7 +42,12 @@ namespace Heroes.Animator
 
         public void ApplyDamage()
         {
-            _damageCallback?.Invoke();
+            _attackAnimationCallback?.Invoke();
+        }
+
+        public void ShootBullet()
+        {
+            _attackAnimationCallback?.Invoke();
         }
     }
 }

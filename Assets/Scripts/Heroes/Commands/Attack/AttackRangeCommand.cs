@@ -16,7 +16,7 @@ namespace Heroes.Commands.Attack
 
         protected override void ExecuteAction()
         {
-            _attackController.AttackRange(_hero.Attack);
+            _attackController.AttackRange(_hero.Attack, 360f - _dragDto.Angle);
         }
     }
 }
