@@ -32,8 +32,9 @@ namespace Heroes.Controllers
 
         private Hero _hero;
         private ITurnHandler _turnHandler;
-        
+
         public IHeroHealth HeroHealth { get; private set; }
+        public IHeroMovement HeroMovement => _heroMovementController;
         public int HeroInstanceId => _hero.InstanceId;
         public HeroTypes.Team HeroTeam => _hero.Team;
 

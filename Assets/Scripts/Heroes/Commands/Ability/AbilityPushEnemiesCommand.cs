@@ -1,17 +1,18 @@
-﻿using Heroes.Actions;
+﻿using Heroes.Abilities;
 using UnityEngine;
 
 namespace Heroes.Commands.Ability
 {
     public class AbilityPushEnemiesCommand : AbilityCommand
     {
-        public AbilityPushEnemiesCommand(Hero hero) : base(hero)
+        public AbilityPushEnemiesCommand(Hero hero, HeroAbilityController abilityController) : base(hero, abilityController)
         {
         }
 
         public override void Execute()
         {
-            Debug.Log($"Execute action <b>{nameof(AbilityPushEnemiesCommand)}</b>");
+            if (_hero.Ability == null) { return; }
+            _abilityController.Cast(_hero.Team.GetRivalTeam());
         }
     }
 }

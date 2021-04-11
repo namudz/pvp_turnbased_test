@@ -14,9 +14,9 @@ namespace Heroes.Abilities.Types
                 case HeroAbilityType.Type.HealAllies:
                     return new HealAlliesAbility(((HealAlliesStatsConfig)abilityConfig).HealPoints);
                 case HeroAbilityType.Type.PullEnemies:
-                    return new PullEnemiesAbility();
+                    return new PullEnemiesAbility(((PullEnemiesStatsConfig)abilityConfig).PullForce);
                 case HeroAbilityType.Type.PushEnemies:
-                    return new PushEnemiesAbility();
+                    return new PushEnemiesAbility(((PushEnemiesStatsConfig)abilityConfig).PushForce);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(abilityConfig.Type), abilityConfig.Type, null);
             }

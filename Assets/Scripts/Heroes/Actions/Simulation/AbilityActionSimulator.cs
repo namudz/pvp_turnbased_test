@@ -28,25 +28,30 @@ namespace Heroes.Actions.Simulation
             
             _simulationFinishedCallback = onSimulationFinished;
             
-            ICommand command = null;
+            FinishSimulation(GetCommand());
+        }
+
+        private ICommand GetCommand()
+        {
+            ICommand command;
             switch (_hero.Ability.Type)
             {
                 case HeroAbilityType.Type.HealAllies:
                     command = new AbilityHealAlliesCommand(_hero, _heroAbilityController);
                     break;
                 case HeroAbilityType.Type.PullEnemies:
-                    command = new AbilityPullEnemiesCommand(_hero);
+                    command = new AbilityPullEnemiesCommand(_hero, _heroAbilityController);
                     break;
                 case HeroAbilityType.Type.PushEnemies:
-                    command = new AbilityPushEnemiesCommand(_hero);
+                    command = new AbilityPushEnemiesCommand(_hero, _heroAbilityController);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            FinishSimulation(command);
+
+            return command;
         }
-        
+
         private void FinishSimulation(ICommand command)
         {
             _simulationFinishedCallback?.Invoke(command);

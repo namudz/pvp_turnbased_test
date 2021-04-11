@@ -4,11 +4,9 @@ namespace Heroes.Commands.Ability
 {
     public class AbilityHealAlliesCommand : AbilityCommand
     {
-        private readonly HeroAbilityController _abilityController;
-
-        public AbilityHealAlliesCommand(Hero hero, HeroAbilityController abilityController) : base(hero)
+        public AbilityHealAlliesCommand(Hero hero, HeroAbilityController abilityController) : base(hero, abilityController)
         {
-            _abilityController = abilityController;
+            
         }
         
         public override void Execute()
