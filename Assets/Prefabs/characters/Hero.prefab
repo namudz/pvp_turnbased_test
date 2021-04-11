@@ -362,7 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf87bf6b996d4859ab9e2ca83028073b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroSelector: {fileID: 3518271774103162109}
   _moveSimulator: {fileID: 5470806433000176489}
   _attackSimulator: {fileID: 8479872320305697394}
   _abilitySimulator: {fileID: 9200615360122352032}
@@ -393,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroActionController: {fileID: 4424319851879526246}
+  _heroGuiController: {fileID: 3729652029023383347}
 --- !u!114 &9200615360122352032
 MonoBehaviour:
   m_ObjectHideFlags: 0

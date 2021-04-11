@@ -59,8 +59,13 @@ namespace Views
         private void UpdateActionButtons(Hero hero)
         {
             _moveActionButton.SetIcon(_imageBank.GetMoveIcon());
+            _moveActionButton.SetActionType(HeroActionType.Type.Move);
+            
             _attackActionButton.SetIcon(_imageBank.GetAttackIcon(hero.Attack.Type));
+            _attackActionButton.SetActionType(HeroActionType.Type.Attack);
+            
             _abilityActionButton.SetIcon(_imageBank.GetAbilityIcon(hero.Ability?.Type));
+            _abilityActionButton.SetActionType(HeroActionType.Type.Ability);
         }
     }
 }
