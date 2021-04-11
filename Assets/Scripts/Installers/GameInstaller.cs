@@ -4,8 +4,11 @@ using Game.ActionsExecutioner;
 using Game.Turn;
 using Game.Turn.Dealer;
 using Game.Turn.Handlers;
+using Heroes.Attacks.Bullets;
 using Heroes.Controllers;
+using Services;
 using Services.EventDispatcher;
+using Services.Pooling;
 using UnityEngine;
 using Views;
 
@@ -23,12 +26,17 @@ namespace Installers
         [Header("Views")]
         [SerializeField] private HeroActionsPanelView _heroActionsPanelView;
 
+        [Header("Pools")]
+        [SerializeField] private Transform _bulletsPoolParent;
+        [SerializeField] private GameObjectPoolDataConfig _bulletPoolConfig;
+
         private IGame _game;
         private ITurnDealer _turnDealer;
         private ITurnHandler _player1TurnHandler;
         private ITurnHandler _player2TurnHandler;
         private IEventDispatcher _eventDispatcher;
         private int _counterHeroesInstalled;
+        private BulletHotDogPool _bulletsPool;
 
         private void Awake()
         {
@@ -36,6 +44,7 @@ namespace Installers
             InstallTurnDependencies();
             InstallGameDependencies();
             InstallHeroDependencies();
+            InstallPools();
 
             InjectViewDependencies();
         }
@@ -48,6 +57,7 @@ namespace Installers
         private void InitializeEventDispatcher()
         {
             _eventDispatcher = new EventDispatcher();
+            ServiceLocator.Instance.RegisterService(_eventDispatcher);
         }
 
         private void InstallTurnDependencies()
@@ -77,6 +87,12 @@ namespace Installers
         {
             _game = new GameMain(_turnDealer, _eventDispatcher);
             _gameActionsExecutioner.InjectDependencies(_turnDealer, _eventDispatcher);
+        }
+        
+        private void InstallPools()
+        {
+            _bulletsPool = new BulletHotDogPool(_bulletPoolConfig.PoolData);
+            _bulletsPool.InstantiateInitialElements(_bulletsPoolParent);
         }
 
         private void InjectViewDependencies()
