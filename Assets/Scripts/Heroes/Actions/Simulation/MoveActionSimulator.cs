@@ -1,6 +1,7 @@
 ﻿using System;
 using Heroes.Commands;
 using Heroes.GUI;
+using Heroes.Movement;
 using Services;
 using Services.Drag;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Heroes.Actions.Simulation
     {
         public event Action OnActionSimulated;
 
-        [SerializeField] private HeroActionController _heroActionController;
+        [SerializeField] private HeroMovementController _heroMovementController;
         [SerializeField] private HeroGuiController _heroGuiController;
         
         private IUserDragHandler _dragHandler;
@@ -43,7 +44,7 @@ namespace Heroes.Actions.Simulation
             if (!_isSimulating) { return; }
 
             // TODO: which data would I need to execute it?
-            var command = new MoveCommand(_heroActionController, dragDto);
+            var command = new MoveCommand(_hero, _heroMovementController, dragDto);
             _simulationFinishedCallback?.Invoke(command);
             _isSimulating = false;
         }

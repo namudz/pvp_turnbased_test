@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ClayStats
   m_EditorClassIdentifier: 
   HealthPoints: 1
+  MaxMovementForce: 10
   AttackConfig: {fileID: 11400000, guid: a4b5429fd344b664385d47f892a38cfc, type: 2}
   AbilityConfig: {fileID: 0}

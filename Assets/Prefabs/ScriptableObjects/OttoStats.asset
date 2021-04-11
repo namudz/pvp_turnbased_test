@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: OttoStats
   m_EditorClassIdentifier: 
   HealthPoints: 1
-  MovementRange: 1
+  MaxMovementForce: 10
   AttackConfig: {fileID: 11400000, guid: 949249df4c036ef40befdac6c16c4cda, type: 2}
   AbilityConfig: {fileID: 11400000, guid: 2874cb86276965e469fa8f6627463bc0, type: 2}

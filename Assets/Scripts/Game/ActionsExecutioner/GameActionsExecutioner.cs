@@ -1,24 +1,22 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Game.Turn;
 using Game.Turn.Dealer;
 using Heroes.Commands;
 using Services.EventDispatcher;
+using UnityEngine;
 
 namespace Game.ActionsExecutioner
 {
-    public class GameActionsExecutioner : IGameActionsExecutioner
+    public class GameActionsExecutioner : MonoBehaviour, IGameActionsExecutioner
     {
         private const int ActionDelay = 1;
-        private readonly ITurnDealer _turnDealer;
-        private readonly IEventDispatcher _eventDispatcher;
+        private ITurnDealer _turnDealer;
+        private IEventDispatcher _eventDispatcher;
         private Queue<ICommand> _actionsToExecute;
-        private bool _executingActions;
-        private bool _allActionsExecuted;
-        private bool _isMyTurn;
+        private Coroutine _executeActionsCoroutine;
 
-        public GameActionsExecutioner(ITurnDealer turnDealer, IEventDispatcher eventDispatcher)
+        public void InjectDependencies(ITurnDealer turnDealer, IEventDispatcher eventDispatcher)
         {
             _turnDealer = turnDealer;
             _eventDispatcher = eventDispatcher;
@@ -32,38 +30,20 @@ namespace Game.ActionsExecutioner
             _actionsToExecute.Enqueue(command);
         }
 
-        public void Tick()
-        {
-            // As I'm using Tasks to add delay between actions, can't access Unity components on a diff thread.
-            // That's why I'm ticking this class
-            // The turn is changed to Player1 after all actions are executed
-            
-            if (!_isMyTurn || _executingActions || !_allActionsExecuted) { return; }
-            AllActionsExecuted();
-        }
-
-        public void Reset()
+        public void ResetActions()
         {
             _actionsToExecute.Clear();
         }
         
         private void HandleTurnChanged(TurnTypes.Turn turn)
         {
-            if (turn != TurnTypes.Turn.CPU)
-            {
-                _isMyTurn = false;
-                return;
-            }
+            if (turn != TurnTypes.Turn.CPU) { return; }
 
-            _isMyTurn = true;
-            Task.Run(ExecuteAllActions);
+            _executeActionsCoroutine = StartCoroutine(ExecuteAllActions());
         }
         
-        private async Task ExecuteAllActions()
+        private IEnumerator ExecuteAllActions()
         {
-            _executingActions = true;
-            _allActionsExecuted = false;
-            
             var actionsCounter = _actionsToExecute.Count;
             for (var i = 0; i < actionsCounter; ++i)
             {
@@ -73,15 +53,9 @@ namespace Game.ActionsExecutioner
                 --i;
                 
                 // Adding some delay to actions for a better gameplay
-                await Task.Delay(TimeSpan.FromSeconds(ActionDelay));
+                yield return new WaitForSeconds(ActionDelay);
             }
 
-            _executingActions = false;
-            _allActionsExecuted = true;
-        }
-
-        private void AllActionsExecuted()
-        {
             _eventDispatcher.Dispatch(new GameActionsExecutedSignal());
         }
     }

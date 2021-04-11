@@ -11,6 +11,9 @@ namespace Heroes
         [Min(1f)]
         public float HealthPoints = 1f;
 
+        [Min(10f)]
+        public float MaxMovementForce = 10f;
+
         [Header("Attack")]
         public AttackStatsConfig AttackConfig;
 
