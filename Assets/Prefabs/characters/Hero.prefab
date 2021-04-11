@@ -395,6 +395,7 @@ MonoBehaviour:
   _heroActionController: {fileID: 4424319851879526246}
   _heroMovementController: {fileID: 1455733978092190967}
   _heroHealthController: {fileID: 3076643621523560959}
+  _heroAttackController: {fileID: 4642877451232074217}
   _guiView: {fileID: 0}
 --- !u!114 &3076643621523560959
 MonoBehaviour:
@@ -436,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animatorController: {fileID: 7030989224361308088}
+  _meleeCollider: {fileID: 2326796022436437969}
 --- !u!114 &4424319851879526246
 MonoBehaviour:
   m_ObjectHideFlags: 0

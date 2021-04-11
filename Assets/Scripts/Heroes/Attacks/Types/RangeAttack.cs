@@ -1,14 +1,9 @@
-﻿using System;
-
-namespace Heroes.Attacks.Types
+﻿namespace Heroes.Attacks.Types
 {
-    public class RangeAttack : IHeroAttack
+    public class RangeAttack : HeroAttack
     {
-        public HeroAttackType.Type Type => HeroAttackType.Type.Range;
-        public float AttackPoints { get; }
-        public void Attack()
+        public RangeAttack(float attackPoints) : base(attackPoints)
         {
-            throw new NotImplementedException();
         }
     }
 }

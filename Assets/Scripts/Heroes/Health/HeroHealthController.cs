@@ -7,13 +7,28 @@ namespace Heroes.Health
     {
         [SerializeField] private HeroAnimatorController _animatorController;
         
+        public int HeroInstanceId => _hero.InstanceId;
+        public IHeroHealth HeroHealth { get; private set; }
+        
         private Hero _hero;
-        private IHeroHealth _heroHealth;
 
         public void InjectDependencies(Hero hero, IHeroHealth heroHealth)
         {
             _hero = hero;
-            _heroHealth = heroHealth;
+            HeroHealth = heroHealth;
+
+            HeroHealth.OnDamaged += PlayHitAnimation;
+            HeroHealth.OnDeath += PlayDeathAnimation;
+        }
+        
+        private void PlayHitAnimation(float obj)
+        {
+            _animatorController.Hit();
+        }
+
+        private void PlayDeathAnimation(int obj)
+        {
+            _animatorController.Die();
         }
     }
 }

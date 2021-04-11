@@ -28,6 +28,7 @@ namespace Installers
         private ITurnHandler _player1TurnHandler;
         private ITurnHandler _player2TurnHandler;
         private IEventDispatcher _eventDispatcher;
+        private int _counterHeroesInstalled;
 
         private void Awake()
         {
@@ -58,6 +59,7 @@ namespace Installers
         
         private void InstallHeroDependencies()
         {
+            _counterHeroesInstalled = 0;
             InjectHeroControllerDependencies(_player1Heroes, _player1TurnHandler);
             InjectHeroControllerDependencies(_player2Heroes, _player2TurnHandler);
         }
@@ -66,7 +68,8 @@ namespace Installers
         {
             foreach (var heroController in heroControllers)
             {
-                heroController.InjectDependencies(turnHandler, _eventDispatcher, _gameActionsExecutioner);
+                heroController.InjectDependencies(_counterHeroesInstalled, turnHandler, _eventDispatcher, _gameActionsExecutioner);
+                ++_counterHeroesInstalled;
             }
         }
         

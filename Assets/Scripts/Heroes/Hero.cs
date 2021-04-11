@@ -18,8 +18,9 @@ namespace Heroes
         public float MaxMovementForce;
         [CanBeNull] public IHeroAbility Ability;
 
-        public Hero(HeroStatsConfig stats)
+        public Hero(int instanceId, HeroStatsConfig stats)
         {
+            InstanceId = instanceId;
             HealthPoints = new HealthPoints(stats.HealthPoints);
             MaxMovementForce = stats.MaxMovementForce;
             Attack = AttackFactory.GetAttack(stats.AttackConfig);

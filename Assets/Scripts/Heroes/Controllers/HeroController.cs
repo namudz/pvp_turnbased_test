@@ -1,6 +1,7 @@
 ﻿using Game.ActionsExecutioner;
 using Game.Turn.Handlers;
 using Heroes.Actions;
+using Heroes.Attacks;
 using Heroes.Health;
 using Heroes.Movement;
 using Heroes.Selector;
@@ -22,7 +23,7 @@ namespace Heroes.Controllers
         [SerializeField] private HeroActionController _heroActionController;
         [SerializeField] private HeroMovementController _heroMovementController;
         [SerializeField] private HeroHealthController _heroHealthController;
-        
+        [SerializeField] private HeroAttackController _heroAttackController;
 
         [Header("Views")]
         [SerializeField] private HeroGuiView _guiView;
@@ -32,11 +33,12 @@ namespace Heroes.Controllers
         private ITurnHandler _turnHandler;
 
         public void InjectDependencies(
-            ITurnHandler turnHandler, 
+            int heroInstanceId, 
+            ITurnHandler turnHandler,
             IEventDispatcher eventDispatcher,
             IGameActionsExecutioner gameActionsExecutioner)
         {
-            InitializeHeroEntity();
+            InitializeHeroEntity(heroInstanceId);
             _turnHandler = turnHandler;
             _heroSelector.InjectDependencies(
                 _hero, 
@@ -48,6 +50,7 @@ namespace Heroes.Controllers
             _heroMovementController.InjectDependencies(_hero);
             _guiView.InjectDependencies(_hero, _heroHealth);
             _heroHealthController.InjectDependencies(_hero, _heroHealth);
+            _heroAttackController.InjectDependencies(_hero);
         }
 
         private void Start()
@@ -55,9 +58,9 @@ namespace Heroes.Controllers
             _heroActionController.OnActionSimulationFinished += LaunchActionSimulationFinishedEvent;
         }
 
-        private void InitializeHeroEntity()
+        private void InitializeHeroEntity(int heroInstanceId)
         {
-            _hero = new Hero(StatsConfig);
+            _hero = new Hero(heroInstanceId, StatsConfig);
             _heroHealth = new HeroHealth(_hero);
         }
         

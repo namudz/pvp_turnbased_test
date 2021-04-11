@@ -6,6 +6,5 @@ namespace Heroes.Attacks
     {
         HeroAttackType.Type Type { get; }
         float AttackPoints { get; }
-        void Attack();
     }
 }
