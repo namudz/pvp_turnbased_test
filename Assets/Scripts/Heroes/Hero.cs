@@ -11,7 +11,8 @@ namespace Heroes
     public class Hero
     {
         public event System.Action<HeroActionType.Type> OnStartSimulatingAction;
-        
+
+        public int InstanceId;
         public HealthPoints HealthPoints;
         public IHeroAttack Attack;
         public float MaxMovementForce;

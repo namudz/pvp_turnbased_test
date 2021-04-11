@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7946630572977513090, guid: d56ff459adf81d047bca1aa2741dbbc2, type: 3}
+      propertyPath: _guiView
+      value: 
+      objectReference: {fileID: 516678242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d56ff459adf81d047bca1aa2741dbbc2, type: 3}
 --- !u!4 &19103482 stripped
@@ -2275,6 +2279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 516678241}
+  - component: {fileID: 516678242}
   m_Layer: 5
   m_Name: Otto
   m_TagString: Untagged
@@ -2303,6 +2308,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &516678242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516678240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a87bb232fb4a5d9c47bfa6b9aaf5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barFillImage: {fileID: 1423758230}
+  _heroPortrait: {fileID: 987323064}
 --- !u!1 &527015674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,6 +2650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5095878237112892100, guid: f81a42d24238b3141b9a340739f7e47f, type: 3}
+      propertyPath: _guiView
+      value: 
+      objectReference: {fileID: 1953832958}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81a42d24238b3141b9a340739f7e47f, type: 3}
 --- !u!4 &626883046 stripped
@@ -3283,6 +3306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 699066061}
+  - component: {fileID: 699066062}
   m_Layer: 5
   m_Name: Clay
   m_TagString: Untagged
@@ -3311,6 +3335,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &699066062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699066060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a87bb232fb4a5d9c47bfa6b9aaf5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barFillImage: {fileID: 4061216166433407769}
+  _heroPortrait: {fileID: 1027481144}
 --- !u!1 &744712525
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,6 +3811,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.591998
       objectReference: {fileID: 0}
+    - target: {fileID: 2282733962654722010, guid: aed5af9faa13eac408987f57b4c249b9, type: 3}
+      propertyPath: _guiView
+      value: 
+      objectReference: {fileID: 2128558256}
     - target: {fileID: 2832585391775665821, guid: aed5af9faa13eac408987f57b4c249b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 20.856054
@@ -6045,6 +6087,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 111.05466
       objectReference: {fileID: 0}
+    - target: {fileID: 1090618134787399163, guid: b134b8e8724cec945b804ac33086d771, type: 3}
+      propertyPath: _guiView
+      value: 
+      objectReference: {fileID: 699066062}
     - target: {fileID: 1185754879756206439, guid: b134b8e8724cec945b804ac33086d771, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -7.794969
@@ -6845,6 +6891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953832957}
+  - component: {fileID: 1953832958}
   m_Layer: 5
   m_Name: Alice
   m_TagString: Untagged
@@ -6873,6 +6920,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 1, y: 0}
+--- !u!114 &1953832958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953832956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a87bb232fb4a5d9c47bfa6b9aaf5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barFillImage: {fileID: 1681115514}
+  _heroPortrait: {fileID: 1150486789}
 --- !u!1 &2000725717
 GameObject:
   m_ObjectHideFlags: 0
@@ -7339,6 +7400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128558255}
+  - component: {fileID: 2128558256}
   m_Layer: 5
   m_Name: Gretchen
   m_TagString: Untagged
@@ -7367,6 +7429,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 1, y: 0}
+--- !u!114 &2128558256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128558254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a87bb232fb4a5d9c47bfa6b9aaf5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barFillImage: {fileID: 1017793478}
+  _heroPortrait: {fileID: 361469816}
 --- !u!1 &2141811028
 GameObject:
   m_ObjectHideFlags: 0

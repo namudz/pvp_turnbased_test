@@ -1,10 +1,12 @@
 ﻿using Game.ActionsExecutioner;
 using Game.Turn.Handlers;
 using Heroes.Actions;
+using Heroes.Health;
 using Heroes.Movement;
 using Heroes.Selector;
 using Services.EventDispatcher;
 using UnityEngine;
+using Views;
 
 namespace Heroes.Controllers
 {
@@ -20,7 +22,11 @@ namespace Heroes.Controllers
         [SerializeField] private HeroActionController _heroActionController;
         [SerializeField] private HeroMovementController _heroMovementController;
 
+        [Header("Views")]
+        [SerializeField] private HeroGuiView _guiView;
+
         private Hero _hero;
+        private IHeroHealth _heroHealth;
         private ITurnHandler _turnHandler;
 
         public void InjectDependencies(
@@ -38,6 +44,7 @@ namespace Heroes.Controllers
             );
             _heroActionController.InjectDependencies(_hero, gameActionsExecutioner);
             _heroMovementController.InjectDependencies(_hero);
+            _guiView.InjectDependencies(_hero, _heroHealth);
         }
 
         private void Start()
@@ -48,6 +55,7 @@ namespace Heroes.Controllers
         private void InitializeHeroEntity()
         {
             _hero = new Hero(StatsConfig);
+            _heroHealth = new HeroHealth(_hero);
         }
         
         private void LaunchActionSimulationFinishedEvent()
