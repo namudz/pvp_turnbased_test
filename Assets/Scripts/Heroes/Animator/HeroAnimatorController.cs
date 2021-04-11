@@ -12,7 +12,9 @@ namespace Heroes.Animator
         private static readonly int RangeAttackTrigger = UnityEngine.Animator.StringToHash("RangeAttack");
         private static readonly int HitTrigger = UnityEngine.Animator.StringToHash("Hit");
         private static readonly int DieTrigger = UnityEngine.Animator.StringToHash("Die");
+        private static readonly int AbilityTrigger = UnityEngine.Animator.StringToHash("Ability");
         private Action _attackAnimationCallback;
+        private Action _abilityAnimationCallback;
 
         public void Attack(HeroAttackType.Type attackType, Action animationCallback)
         {
@@ -28,6 +30,12 @@ namespace Heroes.Animator
                 default:
                     throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
             }
+        }
+
+        public void CastAbility(Action animationCallback)
+        {
+            _abilityAnimationCallback = animationCallback;
+            _animator.SetTrigger(AbilityTrigger);
         }
 
         public void Hit()
@@ -48,6 +56,11 @@ namespace Heroes.Animator
         public void ShootBullet()
         {
             _attackAnimationCallback?.Invoke();
+        }
+
+        public void ApplyAbility()
+        {
+            _abilityAnimationCallback?.Invoke();
         }
     }
 }

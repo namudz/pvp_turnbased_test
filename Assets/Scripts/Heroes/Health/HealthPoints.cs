@@ -2,7 +2,7 @@
 {
     public struct HealthPoints
     {
-        private float Base;
+        public float Base;
         public float Current;
 
         public HealthPoints(float baseHp)

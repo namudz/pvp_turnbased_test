@@ -24,6 +24,7 @@ namespace Views
             _heroHealth = heroHealth;
 
             _heroHealth.OnDamaged += UpdateBar;
+            _heroHealth.OnHealed += UpdateBar;
             _heroHealth.OnDeath += HandleDeath;
         }
 

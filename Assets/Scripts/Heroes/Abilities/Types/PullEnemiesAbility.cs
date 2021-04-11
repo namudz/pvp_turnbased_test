@@ -1,11 +1,25 @@
-﻿namespace Heroes.Abilities.Types
+﻿using System.Collections.Generic;
+using Heroes.Controllers;
+
+namespace Heroes.Abilities.Types
 {
     public class PullEnemiesAbility : IHeroAbility
     {
         public HeroAbilityType.Type Type => HeroAbilityType.Type.PullEnemies;
-        public void Execute()
+        private readonly float _force;
+
+        public PullEnemiesAbility(float force)
         {
-            throw new System.NotImplementedException();
+            _force = force;
+        }
+        
+        public void Execute(IEnumerable<HeroController> targetsControllers)
+        {
+            foreach (var target in targetsControllers)
+            {
+                // TODO: Pull on correct direction
+                target.HeroMovement.Move(0f, _force);
+            }
         }
     }
 }

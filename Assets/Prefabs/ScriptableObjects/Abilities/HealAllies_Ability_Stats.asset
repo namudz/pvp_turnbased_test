@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137686273f634f2ba65802c6bd648e82, type: 3}
   m_Name: HealAllies_Ability_Stats
   m_EditorClassIdentifier: 
-  HealPoints: 1
+  HealPoints: 2

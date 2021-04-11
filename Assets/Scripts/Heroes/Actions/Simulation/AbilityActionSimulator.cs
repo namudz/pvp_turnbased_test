@@ -1,8 +1,8 @@
 ﻿using System;
+using Heroes.Abilities;
 using Heroes.Abilities.Types;
 using Heroes.Commands;
 using Heroes.Commands.Ability;
-using Heroes.GUI;
 using UnityEngine;
 
 namespace Heroes.Actions.Simulation
@@ -11,8 +11,7 @@ namespace Heroes.Actions.Simulation
     {
         public event Action OnActionSimulated;
         
-        [SerializeField] private HeroActionController _heroActionController;
-        [SerializeField] private HeroGuiController _heroGuiController;
+        [SerializeField] private HeroAbilityController _heroAbilityController;
 
         private Hero _hero;
         private bool _isSimulating;
@@ -29,25 +28,30 @@ namespace Heroes.Actions.Simulation
             
             _simulationFinishedCallback = onSimulationFinished;
             
-            ICommand command = null;
+            FinishSimulation(GetCommand());
+        }
+
+        private ICommand GetCommand()
+        {
+            ICommand command;
             switch (_hero.Ability.Type)
             {
                 case HeroAbilityType.Type.HealAllies:
-                    command = new AbilityHealAlliesCommand(_heroActionController);
+                    command = new AbilityHealAlliesCommand(_hero, _heroAbilityController);
                     break;
                 case HeroAbilityType.Type.PullEnemies:
-                    command = new AbilityPullEnemiesCommand(_heroActionController);
+                    command = new AbilityPullEnemiesCommand(_hero, _heroAbilityController);
                     break;
                 case HeroAbilityType.Type.PushEnemies:
-                    command = new AbilityPushEnemiesCommand(_heroActionController);
+                    command = new AbilityPushEnemiesCommand(_hero, _heroAbilityController);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            FinishSimulation(command);
+
+            return command;
         }
-        
+
         private void FinishSimulation(ICommand command)
         {
             _simulationFinishedCallback?.Invoke(command);

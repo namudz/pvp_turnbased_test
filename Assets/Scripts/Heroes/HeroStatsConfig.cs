@@ -7,7 +7,9 @@ namespace Heroes
     [CreateAssetMenu(menuName = "ScriptableObjects/Heroes/HeroConfiguration", order = 1)]
     public class HeroStatsConfig : ScriptableObject
     {
-        [Header ("Hero Stats")]
+        [Header("Hero Stats")]
+        public HeroTypes.Team Team;
+        
         [Min(10f)]
         public float HealthPoints = 10f;
 

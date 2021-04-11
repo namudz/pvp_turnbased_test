@@ -20,5 +20,10 @@ namespace Heroes.Animator
         {
             _heroAnimatorController.ShootBullet();
         }
+
+        public void ApplyAbility()
+        {
+            _heroAnimatorController.ApplyAbility();
+        }
     }
 }

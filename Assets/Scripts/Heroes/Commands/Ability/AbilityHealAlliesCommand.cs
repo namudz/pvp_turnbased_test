@@ -1,17 +1,18 @@
-﻿using Heroes.Actions;
-using UnityEngine;
+﻿using Heroes.Abilities;
 
 namespace Heroes.Commands.Ability
 {
     public class AbilityHealAlliesCommand : AbilityCommand
     {
-        public AbilityHealAlliesCommand(IHeroActionController heroActionController) : base(heroActionController)
+        public AbilityHealAlliesCommand(Hero hero, HeroAbilityController abilityController) : base(hero, abilityController)
         {
+            
         }
         
         public override void Execute()
         {
-            Debug.Log($"Execute action <b>{nameof(AbilityHealAlliesCommand)}</b>");
+            if (_hero.Ability == null) { return; }
+            _abilityController.Cast(_hero.Team);
         }
     }
 }

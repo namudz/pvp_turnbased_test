@@ -1,9 +1,13 @@
-﻿namespace Heroes.Health
+﻿using System;
+
+namespace Heroes.Health
 {
     public interface IHeroHealth
     {
-        event System.Action<float> OnDamaged;
-        event System.Action<int> OnDeath;
+        event Action<float> OnDamaged;
+        event Action<float> OnHealed;
+        event Action<int> OnDeath;
         void Damage (float damage);
+        void Heal (float hp);
     }
 }

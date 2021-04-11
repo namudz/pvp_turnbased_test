@@ -1,14 +1,16 @@
-﻿using Heroes.Actions;
+﻿using Heroes.Abilities;
 
 namespace Heroes.Commands.Ability
 {
     public abstract class AbilityCommand : ICommand
     {
-        private readonly IHeroActionController _heroActionController;
+        protected readonly Hero _hero;
+        protected readonly HeroAbilityController _abilityController;
 
-        protected AbilityCommand(IHeroActionController heroActionController)
+        protected AbilityCommand(Hero hero, HeroAbilityController abilityController)
         {
-            _heroActionController = heroActionController;
+            _hero = hero;
+            _abilityController = abilityController;
         }
         
         public abstract void Execute();
