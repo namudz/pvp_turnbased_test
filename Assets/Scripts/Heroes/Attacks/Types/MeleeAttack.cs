@@ -1,15 +1,11 @@
-﻿using System;
-
-namespace Heroes.Attacks.Types
+﻿namespace Heroes.Attacks.Types
 {
-    public class MeleeAttack : IHeroAttack
+    public class MeleeAttack : HeroAttack
     {
-        public HeroAttackType.Type Type => HeroAttackType.Type.Melee;
-        public float AttackPoints { get; }
+        public override HeroAttackType.Type Type => HeroAttackType.Type.Melee;
         
-        public void Attack()
+        public MeleeAttack(float attackPoints) : base(attackPoints)
         {
-            throw new NotImplementedException();
         }
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OttoAttack
   m_EditorClassIdentifier: 
   Type: 0
-  AttackPoints: 1
+  AttackPoints: 3

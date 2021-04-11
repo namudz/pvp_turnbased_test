@@ -8,8 +8,8 @@ namespace Heroes
     public class HeroStatsConfig : ScriptableObject
     {
         [Header ("Hero Stats")]
-        [Min(1f)]
-        public float HealthPoints = 1f;
+        [Min(10f)]
+        public float HealthPoints = 10f;
 
         [Min(10f)]
         public float MaxMovementForce = 10f;

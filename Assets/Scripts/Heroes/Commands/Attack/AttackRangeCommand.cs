@@ -1,23 +1,22 @@
-﻿using Heroes.Actions;
+﻿using Heroes.Attacks;
 using Services.Drag;
-using UnityEngine;
 
 namespace Heroes.Commands.Attack
 {
-    public class AttackRangeCommand : ICommand
+    public class AttackRangeCommand : ActionCommand
     {
-        private readonly IHeroActionController _heroActionController;
+        private readonly HeroAttackController _attackController;
         private readonly DragDto _dragDto;
 
-        public AttackRangeCommand(IHeroActionController heroActionController, DragDto dragDto)
+        public AttackRangeCommand(Hero hero, HeroAttackController attackController, DragDto dragDto) : base(hero)
         {
-            _heroActionController = heroActionController;
+            _attackController = attackController;
             _dragDto = dragDto;
         }
 
-        public void Execute()
+        protected override void ExecuteAction()
         {
-            Debug.Log($"Execute action <b>{nameof(AttackRangeCommand)}</b>");
+            _attackController.AttackRange(_hero.Attack, 360f - _dragDto.Angle);
         }
     }
 }

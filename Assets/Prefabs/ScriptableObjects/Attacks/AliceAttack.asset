@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AliceAttack
   m_EditorClassIdentifier: 
   Type: 1
-  AttackPoints: 1
+  AttackPoints: 2

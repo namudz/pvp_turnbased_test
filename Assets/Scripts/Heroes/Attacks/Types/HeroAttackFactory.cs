@@ -9,9 +9,9 @@ namespace Heroes.Attacks.Types
             switch (attackConfig.Type)
             {
                 case HeroAttackType.Type.Melee:
-                    return new MeleeAttack();
+                    return new MeleeAttack(attackConfig.AttackPoints);
                 case HeroAttackType.Type.Range:
-                    return new RangeAttack();
+                    return new RangeAttack(attackConfig.AttackPoints);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(attackConfig.Type), attackConfig.Type, null);
             }

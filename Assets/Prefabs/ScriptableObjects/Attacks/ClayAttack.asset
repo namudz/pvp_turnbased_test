@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0fb5863254b44a87ecbe3d89b1e67, type: 3}
   m_Name: ClayAttack
   m_EditorClassIdentifier: 
-  Type: 0
-  AttackPoints: 1
+  Type: 1
+  AttackPoints: 3
