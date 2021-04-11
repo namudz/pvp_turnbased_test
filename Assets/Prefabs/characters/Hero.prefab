@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319a8561c9904b82a93e4f995f4393f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroActionController: {fileID: 4424319851879526246}
   _heroGuiController: {fileID: 3729652029023383347}
 --- !u!114 &8479872320305697394
 MonoBehaviour:
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cef573768004493b1d5ef54eb62a0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroActionController: {fileID: 4424319851879526246}
 --- !u!114 &9200615360122352032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f75f35b9314cc583024a364ca9f213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroActionController: {fileID: 4424319851879526246}
 --- !u!1 &6261113157019338134
 GameObject:
   m_ObjectHideFlags: 0

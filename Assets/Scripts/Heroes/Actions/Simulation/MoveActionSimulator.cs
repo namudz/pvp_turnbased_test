@@ -11,6 +11,7 @@ namespace Heroes.Actions
     {
         public event Action OnActionSimulated;
 
+        [SerializeField] private HeroActionController _heroActionController;
         [SerializeField] private HeroGuiController _heroGuiController;
         
         private IUserDragHandler _dragHandler;
@@ -33,7 +34,9 @@ namespace Heroes.Actions
         
         private void HandleDragFinished(DragDto dragDto)
         {
-            _simulationFinishedCallback?.Invoke(new MoveCommand(dragDto));
+            // TODO: which data would I need to execute it?
+            var command = new MoveCommand(_heroActionController, dragDto);
+            _simulationFinishedCallback?.Invoke(command);
         }
     }
 }
