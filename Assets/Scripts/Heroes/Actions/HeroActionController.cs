@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.ActionsExecutioner;
 using Heroes.Actions.Simulation;
 using Heroes.Commands;
 using Services.Drag;
@@ -15,14 +16,15 @@ namespace Heroes.Actions
         [SerializeField] private AttackActionSimulator _attackSimulator;
         [SerializeField] private AbilityActionSimulator _abilitySimulator;
         
-        public ICommand ActionCommand { get; private set; }
-        
         private Hero _hero;
         private IUserDragHandler _dragHandler;
+        private IGameActionsExecutioner _gameActionsExecutioner;
 
-        public void InjectDependencies(Hero hero)
+        public void InjectDependencies(Hero hero, IGameActionsExecutioner gameActionsExecutioner)
         {
             _hero = hero;
+            _gameActionsExecutioner = gameActionsExecutioner;
+            
             _moveSimulator.InjectDependencies(_hero);
             _attackSimulator.InjectDependencies(_hero);
             _abilitySimulator.InjectDependencies(_hero);
@@ -51,7 +53,7 @@ namespace Heroes.Actions
 
         private void OnSimulationFinished(ICommand command)
         {
-            ActionCommand = command;
+            _gameActionsExecutioner.AddAction(command);
             OnActionSimulationFinished?.Invoke();
         }
     }

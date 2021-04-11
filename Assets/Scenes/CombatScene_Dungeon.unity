@@ -1462,6 +1462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421132589}
   - component: {fileID: 421132588}
+  - component: {fileID: 421132590}
   m_Layer: 0
   m_Name: GameInstaller
   m_TagString: Untagged
@@ -1481,6 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b55281c247a47c6bf76f4893b9882a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameMain: {fileID: 421132590}
   _player1Heroes:
   - {fileID: 1704996783}
   - {fileID: 19103483}
@@ -1502,6 +1504,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &421132590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421132587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e3ae1c6f514196ac512b086cb4c657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &432058634
 GameObject:
   m_ObjectHideFlags: 0

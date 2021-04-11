@@ -1,4 +1,5 @@
 ﻿using Heroes.Actions;
+using UnityEngine;
 
 namespace Heroes.Commands.Ability
 {
@@ -10,7 +11,7 @@ namespace Heroes.Commands.Ability
 
         public override void Execute()
         {
-            throw new System.NotImplementedException();
+            Debug.Log($"Execute action <b>{nameof(AbilityPushEnemiesCommand)}</b>");
         }
     }
 }

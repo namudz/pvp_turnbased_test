@@ -1,4 +1,5 @@
 ﻿using Heroes.Actions;
+using UnityEngine;
 
 namespace Heroes.Commands.Attack
 {
@@ -13,7 +14,7 @@ namespace Heroes.Commands.Attack
         
         public void Execute()
         {
-            throw new System.NotImplementedException();
+            Debug.Log($"Execute action <b>{nameof(AttackMeleeCommand)}</b>");
         }
     }
 }

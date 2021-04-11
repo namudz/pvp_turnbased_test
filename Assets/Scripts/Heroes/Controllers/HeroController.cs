@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Game.ActionsExecutioner;
 using Game.Turn.Handlers;
 using Heroes.Actions;
-using Heroes.GUI;
 using Heroes.Selector;
 using Services.EventDispatcher;
 using UnityEngine;
@@ -22,7 +21,10 @@ namespace Heroes.Controllers
         private Hero _hero;
         private ITurnHandler _turnHandler;
 
-        public void InjectDependencies(ITurnHandler turnHandler, IEventDispatcher eventDispatcher)
+        public void InjectDependencies(
+            ITurnHandler turnHandler, 
+            IEventDispatcher eventDispatcher,
+            IGameActionsExecutioner gameActionsExecutioner)
         {
             InitializeHeroEntity();
             _turnHandler = turnHandler;
@@ -32,7 +34,7 @@ namespace Heroes.Controllers
                 _heroActionController,
                 eventDispatcher
             );
-            _heroActionController.InjectDependencies(_hero);
+            _heroActionController.InjectDependencies(_hero, gameActionsExecutioner);
         }
 
         private void Start()

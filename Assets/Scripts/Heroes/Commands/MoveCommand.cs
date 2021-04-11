@@ -1,5 +1,6 @@
 ﻿using Heroes.Actions;
 using Services.Drag;
+using UnityEngine;
 
 namespace Heroes.Commands
 {
@@ -16,7 +17,7 @@ namespace Heroes.Commands
         
         public void Execute()
         {
-            throw new System.NotImplementedException();
+            Debug.Log($"Execute action <b>{nameof(MoveCommand)}</b>");
         }
     }
 }

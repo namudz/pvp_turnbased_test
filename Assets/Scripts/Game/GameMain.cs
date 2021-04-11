@@ -1,22 +1,44 @@
-﻿using Game.Turn;
+﻿using System;
+using Game.ActionsExecutioner;
+using Game.Turn;
 using Game.Turn.Dealer;
+using Services.EventDispatcher;
+using UnityEngine;
 
 namespace Game
 {
-    public class GameMain : IGame
+    public class GameMain : MonoBehaviour, IGame
     {
-        private readonly ITurnDealer _turnDealer;
-        
+        private IGameActionsExecutioner _gameActionsExecutioner;
+        private ITurnDealer _turnDealer;
+        private IEventDispatcher _eventDispatcher;
+
         private GameStates.States _currentState;
-        
-        public GameMain(ITurnDealer turnDealer)
+
+        public void InjectDependencies(
+            IGameActionsExecutioner gameActionsExecutioner, 
+            ITurnDealer turnDealer,
+            IEventDispatcher eventDispatcher)
         {
+            _gameActionsExecutioner = gameActionsExecutioner;
             _turnDealer = turnDealer;
+            _eventDispatcher = eventDispatcher;
+        }
+
+        private void Update()
+        {
+            _gameActionsExecutioner.Tick();
+        }
+
+        public void GameReady()
+        {
+            _eventDispatcher.Dispatch(new GameReadySignal());
         }
 
         public void StartGame()
         {
             _turnDealer.SetCurrentTurn(TurnTypes.Turn.Player_1);
+            _eventDispatcher.Dispatch(new GameStartSignal());
         }
 
         public void ResetGame()

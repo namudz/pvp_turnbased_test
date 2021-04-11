@@ -1,5 +1,6 @@
 ﻿using Heroes.Actions;
 using Services.Drag;
+using UnityEngine;
 
 namespace Heroes.Commands.Attack
 {
@@ -16,7 +17,7 @@ namespace Heroes.Commands.Attack
 
         public void Execute()
         {
-            throw new System.NotImplementedException();
+            Debug.Log($"Execute action <b>{nameof(AttackRangeCommand)}</b>");
         }
     }
 }
