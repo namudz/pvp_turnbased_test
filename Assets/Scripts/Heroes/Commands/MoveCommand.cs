@@ -1,23 +1,23 @@
 ﻿using Heroes.Actions;
+using Heroes.Movement;
 using Services.Drag;
-using UnityEngine;
 
 namespace Heroes.Commands
 {
-    public class MoveCommand : ICommand
+    public class MoveCommand : ActionCommand
     {
-        private readonly IHeroActionController _actionController;
+        private readonly IHeroMovement _heroMovement;
         private readonly DragDto _dragDto;
 
-        public MoveCommand(IHeroActionController actionController, DragDto dragDto)
+        public MoveCommand(Hero hero, IHeroMovement heroMovement, DragDto dragDto) : base(hero)
         {
-            _actionController = actionController;
+            _heroMovement = heroMovement;
             _dragDto = dragDto;
         }
         
-        public void Execute()
+        protected override void ExecuteAction()
         {
-            Debug.Log($"Execute action <b>{nameof(MoveCommand)}</b>");
+            _heroMovement.Move();
         }
     }
 }

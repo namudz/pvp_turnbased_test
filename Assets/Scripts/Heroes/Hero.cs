@@ -27,5 +27,10 @@ namespace Heroes
         {
             OnStartSimulatingAction?.Invoke(actionType);
         }
+
+        public bool IsAlive()
+        {
+            return HealthPoints.Current > 0;
+        }
     }
 }

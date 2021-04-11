@@ -13,8 +13,8 @@ namespace Installers
 {
     public class GameInstaller : MonoBehaviour
     {
-        [Header("Game Main")]
-        [SerializeField] private GameMain _gameMain;
+        [Header("Game Actions Executioner")]
+        [SerializeField] private GameActionsExecutioner _gameActionsExecutioner;
         
         [Header("Heroes Controllers")]
         [SerializeField] private List<HeroController> _player1Heroes;
@@ -28,7 +28,6 @@ namespace Installers
         private ITurnHandler _player1TurnHandler;
         private ITurnHandler _player2TurnHandler;
         private IEventDispatcher _eventDispatcher;
-        private IGameActionsExecutioner _gameActionsExecutioner;
 
         private void Awake()
         {
@@ -73,9 +72,8 @@ namespace Installers
         
         private void InstallGameDependencies()
         {
-            _gameActionsExecutioner = new GameActionsExecutioner(_turnDealer, _eventDispatcher);
-            _game = _gameMain;
-            _game.InjectDependencies(_gameActionsExecutioner, _turnDealer, _eventDispatcher);
+            _game = new GameMain(_turnDealer, _eventDispatcher);
+            _gameActionsExecutioner.InjectDependencies(_turnDealer, _eventDispatcher);
         }
 
         private void InjectViewDependencies()
