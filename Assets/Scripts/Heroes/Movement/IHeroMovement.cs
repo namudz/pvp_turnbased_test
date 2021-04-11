@@ -2,6 +2,6 @@
 {
     public interface IHeroMovement
     {
-        void Move();
+        void Move(float angle, float forceMultiplier);
     }
 }

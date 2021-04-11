@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AliceStats
   m_EditorClassIdentifier: 
   HealthPoints: 1
-  MovementRange: 1
+  MaxMovementForce: 10
   AttackConfig: {fileID: 11400000, guid: fd742c4f856f0814db2bb6537f26927e, type: 2}
   AbilityConfig: {fileID: 11400000, guid: 3a58403521284db4bb2eb385d175211d, type: 2}

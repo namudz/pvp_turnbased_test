@@ -1,5 +1,4 @@
-﻿using Heroes.Actions;
-using Heroes.Movement;
+﻿using Heroes.Movement;
 using Services.Drag;
 
 namespace Heroes.Commands
@@ -17,7 +16,7 @@ namespace Heroes.Commands
         
         protected override void ExecuteAction()
         {
-            _heroMovement.Move();
+            _heroMovement.Move(360f - _dragDto.Angle, _dragDto.DistanceFactor);
         }
     }
 }

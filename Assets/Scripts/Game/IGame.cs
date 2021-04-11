@@ -1,7 +1,4 @@
-﻿using Game.Turn.Dealer;
-using Services.EventDispatcher;
-
-namespace Game
+﻿namespace Game
 {
     public interface IGame
     {

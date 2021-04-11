@@ -325,6 +325,7 @@ MonoBehaviour:
   StatsConfig: {fileID: 0}
   _heroSelector: {fileID: 8548613195476572468}
   _heroActionController: {fileID: 4424319851879526246}
+  _heroMovementController: {fileID: 1455733978092190967}
 --- !u!114 &1455733978092190967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8653304200638795886}
+  _myTransform: {fileID: 1806559276126142568}
 --- !u!114 &4424319851879526246
 MonoBehaviour:
   m_ObjectHideFlags: 0

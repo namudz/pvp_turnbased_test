@@ -1,6 +1,4 @@
-﻿using Heroes.Actions;
-
-namespace Heroes.Commands
+﻿namespace Heroes.Commands
 {
     public abstract class ActionCommand : ICommand
     {

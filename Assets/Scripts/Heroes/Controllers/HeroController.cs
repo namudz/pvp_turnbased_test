@@ -1,6 +1,7 @@
 ﻿using Game.ActionsExecutioner;
 using Game.Turn.Handlers;
 using Heroes.Actions;
+using Heroes.Movement;
 using Heroes.Selector;
 using Services.EventDispatcher;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Heroes.Controllers
         [Header("Controllers")]
         [SerializeField] private HeroSelector _heroSelector;
         [SerializeField] private HeroActionController _heroActionController;
+        [SerializeField] private HeroMovementController _heroMovementController;
 
         private Hero _hero;
         private ITurnHandler _turnHandler;
@@ -35,6 +37,7 @@ namespace Heroes.Controllers
                 eventDispatcher
             );
             _heroActionController.InjectDependencies(_hero, gameActionsExecutioner);
+            _heroMovementController.InjectDependencies(_hero);
         }
 
         private void Start()

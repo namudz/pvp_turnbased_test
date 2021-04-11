@@ -14,11 +14,13 @@ namespace Heroes
         
         public HealthPoints HealthPoints;
         public IHeroAttack Attack;
+        public float MaxMovementForce;
         [CanBeNull] public IHeroAbility Ability;
 
         public Hero(HeroStatsConfig stats)
         {
             HealthPoints = new HealthPoints(stats.HealthPoints);
+            MaxMovementForce = stats.MaxMovementForce;
             Attack = AttackFactory.GetAttack(stats.AttackConfig);
             Ability = AbilityFactory.GetAbility(stats.AbilityConfig);
         }
