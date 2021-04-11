@@ -12,7 +12,7 @@ namespace Heroes.Abilities.Types
             switch (abilityConfig.Type)
             {
                 case HeroAbilityType.Type.HealAllies:
-                    return new HealAlliesAbility();
+                    return new HealAlliesAbility(((HealAlliesStatsConfig)abilityConfig).HealPoints);
                 case HeroAbilityType.Type.PullEnemies:
                     return new PullEnemiesAbility();
                 case HeroAbilityType.Type.PushEnemies:

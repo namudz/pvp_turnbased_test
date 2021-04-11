@@ -5,7 +5,7 @@ namespace Heroes.Commands.Ability
 {
     public class AbilityPushEnemiesCommand : AbilityCommand
     {
-        public AbilityPushEnemiesCommand(IHeroActionController heroActionController) : base(heroActionController)
+        public AbilityPushEnemiesCommand(Hero hero) : base(hero)
         {
         }
 

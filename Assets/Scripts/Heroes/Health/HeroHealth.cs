@@ -5,6 +5,7 @@ namespace Heroes.Health
     public class HeroHealth : IHeroHealth
     {
         public event Action<float> OnDamaged;
+        public event Action<float> OnHealed;
         public event Action<int> OnDeath;
         private readonly Hero _hero;
 
@@ -25,9 +26,20 @@ namespace Heroes.Health
             LaunchDamagedEvent();
         }
 
+        public void Heal(float hp)
+        {
+            _hero.HealthPoints.Current += hp;
+            LaunchHealedEvent();
+        }
+
         private void LaunchDamagedEvent()
         {
             OnDamaged?.Invoke(_hero.HealthPoints.GetCurrentHealthPercentage());
+        }
+        
+        private void LaunchHealedEvent()
+        {
+            OnHealed?.Invoke(_hero.HealthPoints.GetCurrentHealthPercentage());
         }
 
         private void LaunchDeathEvent()

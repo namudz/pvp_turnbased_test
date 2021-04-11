@@ -1,11 +1,24 @@
-﻿namespace Heroes.Abilities.Types
+﻿using System.Collections.Generic;
+using Heroes.Controllers;
+
+namespace Heroes.Abilities.Types
 {
     public class HealAlliesAbility : IHeroAbility
     {
         public HeroAbilityType.Type Type => HeroAbilityType.Type.HealAllies;
-        public void Execute()
+        private float _healPoints;
+
+        public HealAlliesAbility(float healPoints)
         {
-            throw new System.NotImplementedException();
+            _healPoints = healPoints;
+        }
+
+        public void Execute(IEnumerable<HeroController> targetsControllers)
+        {
+            foreach (var target in targetsControllers)
+            {
+                target.HeroHealth.Heal(_healPoints);
+            }
         }
     }
 }

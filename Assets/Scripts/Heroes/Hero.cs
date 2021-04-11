@@ -13,6 +13,7 @@ namespace Heroes
         public event System.Action<HeroActionType.Type> OnStartSimulatingAction;
 
         public int InstanceId;
+        public HeroTypes.Team Team;
         public HealthPoints HealthPoints;
         public IHeroAttack Attack;
         public float MaxMovementForce;
@@ -21,6 +22,7 @@ namespace Heroes
         public Hero(int instanceId, HeroStatsConfig stats)
         {
             InstanceId = instanceId;
+            Team = stats.Team;
             HealthPoints = new HealthPoints(stats.HealthPoints);
             MaxMovementForce = stats.MaxMovementForce;
             Attack = AttackFactory.GetAttack(stats.AttackConfig);
