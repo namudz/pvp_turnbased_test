@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game;
+using Game.ActionsExecutioner;
 using Game.Turn;
 using Game.Turn.Dealer;
 using Game.Turn.Handlers;
@@ -12,6 +13,9 @@ namespace Installers
 {
     public class GameInstaller : MonoBehaviour
     {
+        [Header("Game Main")]
+        [SerializeField] private GameMain _gameMain;
+        
         [Header("Heroes Controllers")]
         [SerializeField] private List<HeroController> _player1Heroes;
         [SerializeField] private List<HeroController> _player2Heroes;
@@ -24,13 +28,14 @@ namespace Installers
         private ITurnHandler _player1TurnHandler;
         private ITurnHandler _player2TurnHandler;
         private IEventDispatcher _eventDispatcher;
+        private IGameActionsExecutioner _gameActionsExecutioner;
 
         private void Awake()
         {
             InitializeEventDispatcher();
             InstallTurnDependencies();
-            InstallHeroDependencies();
             InstallGameDependencies();
+            InstallHeroDependencies();
 
             InjectViewDependencies();
         }
@@ -49,7 +54,7 @@ namespace Installers
         {
             _player1TurnHandler = new TurnHandler(TurnTypes.Turn.Player_1, _player1Heroes);
             _player2TurnHandler = new TurnHandler(TurnTypes.Turn.Player_2, _player2Heroes);
-            _turnDealer = new TurnDealer(_player1TurnHandler, _player2TurnHandler);
+            _turnDealer = new TurnDealer(_player1TurnHandler, _player2TurnHandler, _eventDispatcher);
         }
         
         private void InstallHeroDependencies()
@@ -62,13 +67,15 @@ namespace Installers
         {
             foreach (var heroController in heroControllers)
             {
-                heroController.InjectDependencies(turnHandler, _eventDispatcher);
+                heroController.InjectDependencies(turnHandler, _eventDispatcher, _gameActionsExecutioner);
             }
         }
         
         private void InstallGameDependencies()
         {
-            _game = new GameMain(_turnDealer);
+            _gameActionsExecutioner = new GameActionsExecutioner(_turnDealer, _eventDispatcher);
+            _game = _gameMain;
+            _game.InjectDependencies(_gameActionsExecutioner, _turnDealer, _eventDispatcher);
         }
 
         private void InjectViewDependencies()

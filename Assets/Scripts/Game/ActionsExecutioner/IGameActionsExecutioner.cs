@@ -5,7 +5,7 @@ namespace Game.ActionsExecutioner
     public interface IGameActionsExecutioner
     {
         void AddAction(ICommand command);
-        void ExecuteAllActions();
+        void Tick();
         void Reset();
     }
 }
