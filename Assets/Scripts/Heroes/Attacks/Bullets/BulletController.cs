@@ -42,7 +42,7 @@ namespace Heroes.Attacks.Bullets
             _myTransform.localRotation = Quaternion.AngleAxis(angle, Vector3.up);
 
             var direction = _myTransform.TransformDirection(Vector3.forward);
-            _rigidbody.AddForce(direction * Speed, ForceMode.Force);
+            _rigidbody.AddRelativeForce(direction * Speed, ForceMode.Acceleration);
         }
         
         private void OnTriggerEnter(Collider other)
