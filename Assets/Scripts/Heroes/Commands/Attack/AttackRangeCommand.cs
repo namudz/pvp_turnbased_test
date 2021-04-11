@@ -1,7 +1,7 @@
 ﻿using Heroes.Actions;
 using Services.Drag;
 
-namespace Heroes.Commands
+namespace Heroes.Commands.Attack
 {
     public class AttackRangeCommand : ICommand
     {

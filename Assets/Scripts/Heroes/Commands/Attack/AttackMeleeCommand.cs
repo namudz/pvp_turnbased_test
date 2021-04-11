@@ -1,6 +1,6 @@
 ﻿using Heroes.Actions;
 
-namespace Heroes.Commands
+namespace Heroes.Commands.Attack
 {
     public class AttackMeleeCommand : ICommand
     {

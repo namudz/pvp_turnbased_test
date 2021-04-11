@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: GretchenStats
   m_EditorClassIdentifier: 
   HealthPoints: 1
-  MovementRange: 1
   AttackConfig: {fileID: 11400000, guid: 0bef5e33582d715468f42c621f177194, type: 2}
   AbilityConfig: {fileID: 11400000, guid: 9f5c6d201836da147ac69fd572d3e858, type: 2}
