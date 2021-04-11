@@ -58,9 +58,8 @@ namespace Services.Drag
             var distanceFactor = Vector2.Distance(_startDragPoint, _currentDragPoint) / _maxDragDistance;
             distanceFactor = Mathf.Clamp01(distanceFactor);
             _dragDto.DistanceFactor = distanceFactor;
-            
-            var dir = _currentDragPoint - _startDragPoint;
-            _dragDto.Angle = Mathf.Atan2(dir.x, dir.y) * -Mathf.Rad2Deg;
+
+            _dragDto.Angle = _startDragPoint.AngleTo(_currentDragPoint);
         }
     }
 }
