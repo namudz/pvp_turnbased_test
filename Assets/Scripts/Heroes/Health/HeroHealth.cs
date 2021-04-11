@@ -29,6 +29,10 @@ namespace Heroes.Health
         public void Heal(float hp)
         {
             _hero.HealthPoints.Current += hp;
+            if (_hero.HealthPoints.Current > _hero.HealthPoints.Base)
+            {
+                _hero.HealthPoints.Current = _hero.HealthPoints.Base;
+            }
             LaunchHealedEvent();
         }
 

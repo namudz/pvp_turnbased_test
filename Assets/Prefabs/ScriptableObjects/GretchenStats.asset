@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac5408494554b228b0a81e69d6f88f1, type: 3}
   m_Name: GretchenStats
   m_EditorClassIdentifier: 
+  Team: 1
   HealthPoints: 10
   MaxMovementForce: 10
   AttackConfig: {fileID: 11400000, guid: 0bef5e33582d715468f42c621f177194, type: 2}
