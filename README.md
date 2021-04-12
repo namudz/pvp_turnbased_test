@@ -16,12 +16,12 @@ Are located on Assets > Prefabs > Scriptable Objects.
 
 - To use the slingshot mechanic, you can start the drag from anywhere of the gameboard (no need to start it over a hero)
 
-- You can play on Unity Editor & [Android](/releases/latest)
+- You can play on Unity Editor & [Android](/release/latest)
 
 Enjoy!
 
 ## Releases
-[Latest version](/releases/latest)
+[Latest version](/release/latest)
 
 ## Time Tracking
 Basic Turn Management architecture: *40min*
