@@ -21,5 +21,15 @@ namespace Heroes.Movement
             var force = _myTransform.forward * (_hero.MaxMovementForce * forceMultiplier);
             _rigidbody.AddForce(force, ForceMode.Impulse);
         }
+
+        public void Pull(Vector3 casterPosition, float force, float range)
+        {
+            _rigidbody.AddExplosionForce(-force, casterPosition, range);
+        }
+
+        public void Push(Vector3 casterPosition, float force, float range)
+        {
+            _rigidbody.AddExplosionForce(force, casterPosition, range);
+        }
     }
 }

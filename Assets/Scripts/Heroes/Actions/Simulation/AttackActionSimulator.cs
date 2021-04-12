@@ -55,7 +55,6 @@ namespace Heroes.Actions.Simulation
         {
             if (!_isSimulating) { return; }
 
-            // TODO: which data would I need to execute it?
             _dragHandler.OnEndDragging -= HandleDragFinished;
             var command = new AttackRangeCommand(_hero, _heroAttackController, dragDto);
             FinishSimulation(command);
