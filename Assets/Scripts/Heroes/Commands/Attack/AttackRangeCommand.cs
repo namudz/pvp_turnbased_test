@@ -1,10 +1,12 @@
-﻿using Heroes.Attacks;
+﻿using Heroes.Actions;
+using Heroes.Attacks;
 using Services.Drag;
 
 namespace Heroes.Commands.Attack
 {
     public class AttackRangeCommand : ActionCommand
     {
+        public override HeroActionType.Type Type => HeroActionType.Type.Attack;
         private readonly HeroAttackController _attackController;
         private readonly DragDto _dragDto;
 
@@ -16,7 +18,7 @@ namespace Heroes.Commands.Attack
 
         protected override void ExecuteAction()
         {
-            _attackController.AttackRange(_hero.Attack, 360f - _dragDto.Angle);
+            _attackController.AttackRange(_hero.Attack, 360f - _dragDto.Angle, LaunchOnCompletedEvent);
         }
     }
 }
