@@ -72,6 +72,7 @@ namespace Installers
             _counterHeroesInstalled = 0;
             InjectHeroControllerDependencies(_player1Heroes, _player1TurnHandler);
             InjectHeroControllerDependencies(_player2Heroes, _player2TurnHandler);
+            _game.SetHeroes(_player1Heroes, _player2Heroes);
         }
 
         private void InjectHeroControllerDependencies(IEnumerable<HeroController> heroControllers, ITurnHandler turnHandler)

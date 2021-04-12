@@ -25,5 +25,10 @@ namespace Heroes.Animator
         {
             _heroAnimatorController.ApplyAbility();
         }
+
+        public void DieAnimationFinished()
+        {
+            _heroAnimatorController.DieAnimationFinished();
+        }
     }
 }

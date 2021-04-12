@@ -15,6 +15,7 @@ namespace Heroes.Animator
         private static readonly int AbilityTrigger = UnityEngine.Animator.StringToHash("Ability");
         private Action _attackAnimationCallback;
         private Action _abilityAnimationCallback;
+        private Action _dieAnimationCallback;
 
         public void Attack(HeroAttackType.Type attackType, Action animationCallback)
         {
@@ -43,8 +44,9 @@ namespace Heroes.Animator
             _animator.SetTrigger(HitTrigger);
         }
 
-        public void Die()
+        public void Die(Action animationFinished)
         {
+            _dieAnimationCallback = animationFinished;
             _animator.SetTrigger(DieTrigger);
         }
 
@@ -61,6 +63,11 @@ namespace Heroes.Animator
         public void ApplyAbility()
         {
             _abilityAnimationCallback?.Invoke();
+        }
+
+        public void DieAnimationFinished()
+        {
+            _dieAnimationCallback?.Invoke();
         }
     }
 }

@@ -7,6 +7,8 @@ namespace Heroes.Health
         public event Action<float> OnDamaged;
         public event Action<float> OnHealed;
         public event Action<int> OnDeath;
+
+        public int HeroInstanceId => _hero.InstanceId;
         private readonly Hero _hero;
 
         public HeroHealth(Hero hero)

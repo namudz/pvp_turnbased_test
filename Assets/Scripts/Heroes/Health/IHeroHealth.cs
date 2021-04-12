@@ -7,6 +7,8 @@ namespace Heroes.Health
         event Action<float> OnDamaged;
         event Action<float> OnHealed;
         event Action<int> OnDeath;
+        
+        int HeroInstanceId { get; }
         void Damage (float damage);
         void Heal (float hp);
     }

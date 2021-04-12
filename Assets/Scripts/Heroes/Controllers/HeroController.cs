@@ -1,4 +1,5 @@
-﻿using Game.ActionsExecutioner;
+﻿using System;
+using Game.ActionsExecutioner;
 using Game.Turn.Handlers;
 using Heroes.Abilities;
 using Heroes.Actions;
@@ -14,7 +15,8 @@ namespace Heroes.Controllers
 {
     public class HeroController : MonoBehaviour
     {
-        public event System.Action OnActionSimulationFinished;
+        public event Action OnActionSimulationFinished;
+        public event Action<int> OnHeroDeath;
         
         [Header("Stats")]
         [SerializeField] private HeroStatsConfig StatsConfig;
@@ -69,8 +71,15 @@ namespace Heroes.Controllers
         {
             _hero = new Hero(heroInstanceId, StatsConfig);
             HeroHealth = new HeroHealth(_hero);
+            HeroHealth.OnDeath += LaunchHeroDeathEvent;
         }
-        
+
+        private void LaunchHeroDeathEvent(int heroId)
+        {
+            HeroHealth.OnDeath -= LaunchHeroDeathEvent;
+            OnHeroDeath?.Invoke(heroId);
+        }
+
         private void LaunchActionSimulationFinishedEvent()
         {
             OnActionSimulationFinished?.Invoke();

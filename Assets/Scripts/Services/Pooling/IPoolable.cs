@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Services.Pooling
+﻿namespace Services.Pooling
 {
     public interface IPoolable
     {

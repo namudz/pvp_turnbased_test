@@ -28,7 +28,12 @@ namespace Heroes.Health
 
         private void PlayDeathAnimation(int obj)
         {
-            _animatorController.Die();
+            _animatorController.Die(Deactivate);
+        }
+
+        private void Deactivate()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

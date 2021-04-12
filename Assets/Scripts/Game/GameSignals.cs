@@ -1,4 +1,5 @@
-﻿using Services.EventDispatcher;
+﻿using Heroes;
+using Services.EventDispatcher;
 
 namespace Game
 {
@@ -8,5 +9,15 @@ namespace Game
 
     public class GameReadySignal : ISignal
     {
+    }
+
+    public class GameOverSignal : ISignal
+    {
+        public HeroTypes.Team TeamWinner;
+
+        public GameOverSignal(HeroTypes.Team teamWinner)
+        {
+            TeamWinner = teamWinner;
+        }
     }
 }
