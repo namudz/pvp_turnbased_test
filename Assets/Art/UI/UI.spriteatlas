@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7af1d8ba21a96244d8645bdfa81edece, type: 3}
+    - {fileID: 102900000, guid: 9d64716bd9ca901418b908e74071466b, type: 3}
+    totalSpriteSurfaceArea: 431360
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5abbefe0cb71a1e4eae0ba1bf21510b1, type: 3}
+  - {fileID: 21300000, guid: 99936d2205198734587901f6d51a1993, type: 3}
+  - {fileID: 21300000, guid: bba13b13fdc464a42828a553592ca6aa, type: 3}
+  - {fileID: 21300000, guid: a240dde3c8e4b134981ed845e974d514, type: 3}
+  - {fileID: 21300000, guid: 990dad04c173d134cb431094a2830645, type: 3}
+  - {fileID: 21300000, guid: 3b4aa154ed7d3dd4e9e3577bb46e5dcd, type: 3}
+  - {fileID: 21300000, guid: 5050d0742ed1d8a43acaedc8ee8fec5e, type: 3}
+  - {fileID: 21300000, guid: f22e332549e21c14fad2f272f4ec7bf8, type: 3}
+  - {fileID: 21300000, guid: 12ea7806759527b4f8bd54b1a518ad1e, type: 3}
+  - {fileID: 21300000, guid: d8f648e65824f674783efc2b5ce252c0, type: 3}
+  - {fileID: 21300000, guid: b72686575cfdbcc4487a9f58097ce943, type: 3}
+  - {fileID: 21300000, guid: 76d15ab794ff742409b9a61b6ee284d5, type: 3}
+  - {fileID: 21300000, guid: d1b7e7fa118189c41ab71db95413afa9, type: 3}
+  - {fileID: 21300000, guid: bec3cead68445644387194c7ab24d11b, type: 3}
+  - {fileID: 21300000, guid: 2a6c696fbe7ad024abeb14a8e4c20501, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - arrow_gradient
+  - icon_attack_range
+  - icon_move
+  - portrait_otto
+  - portrait_gretchen
+  - portrait_alice
+  - icon_ability_pull
+  - arrow_direction_fill
+  - arrow_direction_border
+  - hero_selectable_circle
+  - WhiteSquare
+  - icon_ability_heal
+  - portrait_clay
+  - icon_attack_mele
+  - icon_ability_push
+  m_RenderDataMap: {}
+  m_Tag: UI
+  m_IsVariant: 0
