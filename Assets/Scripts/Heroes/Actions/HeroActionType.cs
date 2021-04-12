@@ -5,8 +5,8 @@
         public enum Type
         {
             Move,
-            Attack,
-            Ability
+            Ability,
+            Attack
         }
     }
 }

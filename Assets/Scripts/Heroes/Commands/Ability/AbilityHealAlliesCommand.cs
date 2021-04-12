@@ -6,13 +6,12 @@ namespace Heroes.Commands.Ability
     {
         public AbilityHealAlliesCommand(Hero hero, HeroAbilityController abilityController) : base(hero, abilityController)
         {
-            
         }
         
         public override void Execute()
         {
             if (_hero.Ability == null) { return; }
-            _abilityController.Cast(_hero.Team);
+            _abilityController.Cast(_hero.Team, LaunchOnCompletedEvent);
         }
     }
 }

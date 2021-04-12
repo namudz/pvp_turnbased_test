@@ -13,8 +13,8 @@ namespace Heroes.Abilities
         
         private Hero _hero;
         private HeroTypes.Team _targetTeam;
-
         private List<HeroController> _targetsControllers = new List<HeroController>();
+        private Action _onCompletedCallback;
 
         private void Awake()
         {
@@ -26,21 +26,12 @@ namespace Heroes.Abilities
             _hero = hero;
         }
 
-        public void Cast(HeroTypes.Team targetTeam)
+        public void Cast(HeroTypes.Team targetTeam, Action onCompletedCallback)
         {
             _targetTeam = targetTeam;
+            _onCompletedCallback = onCompletedCallback;
             _detectionCollider.enabled = true;
             _animatorController.CastAbility(ApplyAbility);
-        }
-
-        public void CastPushEnemies()
-        {
-            
-        }
-
-        public void CastPullEnemies()
-        {
-            
         }
         
         private void OnTriggerEnter(Collider other)
@@ -60,6 +51,7 @@ namespace Heroes.Abilities
         private void ApplyAbility()
         {
             _hero.Ability?.Execute(_targetsControllers);
+            _onCompletedCallback?.Invoke();
         }
     }
 }

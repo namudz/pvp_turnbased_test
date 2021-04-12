@@ -11,7 +11,7 @@ namespace Heroes.Commands.Ability
         public override void Execute()
         {
             if (_hero.Ability == null) { return; }
-            _abilityController.Cast(_hero.Team.GetRivalTeam());
+            _abilityController.Cast(_hero.Team.GetRivalTeam(), LaunchOnCompletedEvent);
         }
     }
 }

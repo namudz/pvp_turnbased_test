@@ -1,4 +1,5 @@
-﻿using Heroes.Animator;
+﻿using System;
+using Heroes.Animator;
 using Heroes.Attacks.Bullets;
 using Heroes.Health;
 using Services;
@@ -16,6 +17,7 @@ namespace Heroes.Attacks
         private Hero _hero;
         private IHeroHealth _enemyToDamage;
         private BulletController _bullet;
+        private Action _onCompletedAttackCallback;
 
         private void Awake()
         {
@@ -27,17 +29,20 @@ namespace Heroes.Attacks
             _hero = hero;
         }
 
-        public void AttackMelee(IHeroAttack type)
+        public void AttackMelee(IHeroAttack type, Action onCompletedCallback)
         {
+            _onCompletedAttackCallback = onCompletedCallback;
             _meleeCollider.enabled = true;
             _animatorController.Attack(type.Type, DamageEnemy);
         }
         
-        public void AttackRange(IHeroAttack type, float shootAngle)
+        public void AttackRange(IHeroAttack type, float shootAngle, Action onCompletedCallback)
         {
+            _onCompletedAttackCallback = onCompletedCallback;
             _animatorController.Attack(type.Type, () =>
             {
                 ShootBullet(shootAngle);
+                _onCompletedAttackCallback?.Invoke();
             });
         }
 
@@ -53,6 +58,7 @@ namespace Heroes.Attacks
         private void DamageEnemy()
         {
             _enemyToDamage?.Damage(_hero.Attack.AttackPoints);
+            _onCompletedAttackCallback?.Invoke();
         }
 
         private void ShootBullet(float shootAngle)
