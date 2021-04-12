@@ -49,17 +49,8 @@ namespace Game
 
         public void ResetGame()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void PauseGame()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void QuitGame()
-        {
-            throw new System.NotImplementedException();
+            _eventDispatcher.Dispatch(new GameRestartSignal());
+            StartGame();
         }
 
         private void HandleHeroDeath(int heroInstanceId)

@@ -20,4 +20,8 @@ namespace Game
             TeamWinner = teamWinner;
         }
     }
+
+    public class GameRestartSignal : ISignal
+    {
+    }
 }

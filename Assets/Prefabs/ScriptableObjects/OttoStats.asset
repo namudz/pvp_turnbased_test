@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac5408494554b228b0a81e69d6f88f1, type: 3}
   m_Name: OttoStats
   m_EditorClassIdentifier: 
+  Team: 0
   HealthPoints: 10
   MaxMovementForce: 10
   AttackConfig: {fileID: 11400000, guid: 949249df4c036ef40befdac6c16c4cda, type: 2}

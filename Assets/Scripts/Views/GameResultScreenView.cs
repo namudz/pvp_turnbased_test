@@ -1,5 +1,4 @@
-﻿using System;
-using Game;
+﻿using Game;
 using Services;
 using Services.EventDispatcher;
 using TMPro;
@@ -12,12 +11,6 @@ namespace Views
     {
         [SerializeField] private Canvas _myCanvas;
         [SerializeField] private TextMeshProUGUI _teamWinnerText;
-        [SerializeField] private Button _playAgainButton;
-
-        private void Awake()
-        {
-            _playAgainButton.onClick.AddListener(PlayAgain);
-        }
 
         private void Start()
         {
@@ -47,11 +40,6 @@ namespace Views
         private void Hide()
         {
             _myCanvas.enabled = false;
-        }
-
-        private void PlayAgain()
-        {
-            throw new NotImplementedException();
         }
     }
 }

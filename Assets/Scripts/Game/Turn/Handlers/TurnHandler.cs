@@ -31,6 +31,7 @@ namespace Game.Turn.Handlers
         {
             foreach (var hero in _heroesControllers)
             {
+                hero.OnHeroDeath += id => HandleHeroActionSimulationFinished();
                 hero.OnActionSimulationFinished += HandleHeroActionSimulationFinished;
             }
         }
