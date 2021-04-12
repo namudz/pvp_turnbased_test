@@ -6,8 +6,8 @@ namespace Heroes.Abilities.ConfigStats
     [CreateAssetMenu(menuName = "ScriptableObjects/Heroes/Abilities/PullEnemiesConfiguration", order = 1)]
     public class PullEnemiesStatsConfig : AbilityStatsConfig
     {
-        [Header("Pull Force")]
-        public float PullForce;
+        public float PullForce = 450f;
+        public float PullRange = 30f;
         
         public PullEnemiesStatsConfig()
         {

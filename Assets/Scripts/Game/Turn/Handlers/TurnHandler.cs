@@ -60,7 +60,6 @@ namespace Game.Turn.Handlers
 
         private void StartTurn()
         {
-            // TODO: check if the hero is alive to update the counter
             _heroesToSimulateActionsCounter = _heroesControllers.Count;
             OnTurnStart?.Invoke();
         }

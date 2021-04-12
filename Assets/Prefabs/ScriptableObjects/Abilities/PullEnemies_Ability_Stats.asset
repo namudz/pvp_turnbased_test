@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb605dbbfd0345bb8c06991b0b512d3c, type: 3}
   m_Name: PullEnemies_Ability_Stats
   m_EditorClassIdentifier: 
-  PullForce: 3
+  PullForce: 450
+  PullRange: 30

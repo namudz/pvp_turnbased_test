@@ -60,7 +60,6 @@ namespace Game.Turn.Dealer
         
         private void HandleAllActionsExecuted(ISignal signal)
         {
-            // TODO: check if game is over
             ChangeTurnToPlayer1();
         }
     }

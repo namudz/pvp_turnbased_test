@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f141fae5ae35488faf32bc7c083d5300, type: 3}
   m_Name: PushEnemies_Ability_Stats
   m_EditorClassIdentifier: 
-  PushForce: 2
+  PushForce: 450
+  PushRange: 30

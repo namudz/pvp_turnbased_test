@@ -13,10 +13,15 @@ namespace Heroes.Abilities.Types
             {
                 case HeroAbilityType.Type.HealAllies:
                     return new HealAlliesAbility(((HealAlliesStatsConfig)abilityConfig).HealPoints);
+                
                 case HeroAbilityType.Type.PullEnemies:
-                    return new PullEnemiesAbility(((PullEnemiesStatsConfig)abilityConfig).PullForce);
+                    var pullConfig = (PullEnemiesStatsConfig) abilityConfig;
+                    return new PullEnemiesAbility(pullConfig.PullForce, pullConfig.PullRange);
+                
                 case HeroAbilityType.Type.PushEnemies:
-                    return new PushEnemiesAbility(((PushEnemiesStatsConfig)abilityConfig).PushForce);
+                    var pushConfig = (PushEnemiesStatsConfig) abilityConfig;
+                    return new PushEnemiesAbility(pushConfig.PushForce, pushConfig.PushRange);
+                
                 default:
                     throw new ArgumentOutOfRangeException(nameof(abilityConfig.Type), abilityConfig.Type, null);
             }

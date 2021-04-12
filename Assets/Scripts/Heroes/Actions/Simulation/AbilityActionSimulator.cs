@@ -40,10 +40,10 @@ namespace Heroes.Actions.Simulation
                     command = new AbilityHealAlliesCommand(_hero, _heroAbilityController);
                     break;
                 case HeroAbilityType.Type.PullEnemies:
-                    command = new AbilityPullEnemiesCommand(_hero, _heroAbilityController);
+                    command = new AbilityPullEnemiesCommand(_hero, _heroAbilityController, transform.position);
                     break;
                 case HeroAbilityType.Type.PushEnemies:
-                    command = new AbilityPushEnemiesCommand(_hero, _heroAbilityController);
+                    command = new AbilityPushEnemiesCommand(_hero, _heroAbilityController, transform.position);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
