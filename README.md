@@ -21,7 +21,7 @@ Are located on Assets > Prefabs > Scriptable Objects.
 Enjoy!
 
 ## Releases
-[Latest version](/release/latest)
+[Latest version](/releases/latest)
 
 ## Time Tracking
 Basic Turn Management architecture: *40min*
