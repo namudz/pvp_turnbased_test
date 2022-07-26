@@ -21,7 +21,7 @@ Are located on Assets > Prefabs > Scriptable Objects.
 Enjoy!
 
 ## Releases
-[Latest version](https://github.com/namudz/pvp_turnbased_test/releases/tag/v1.0.0)
+[Latest version](https://github.com/namudz/pvp_turnbased_test/releases/latest)
 
 ## Time Tracking
 Basic Turn Management architecture: *40min*
